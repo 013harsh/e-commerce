@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Utility to hide scrollbars while preserving scroll behavior */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
