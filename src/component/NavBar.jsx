@@ -28,12 +28,14 @@ const NavBar = () => {
       </div>
 
       <div className="flex justify-end gap-x-6">
-        <NavLink
-          to="/categories"
-          className="transition-colors hover:text-red-700 hover:underline underline-offset-4"
-        >
-          Categories
-        </NavLink>
+        <select className="bg-black text-white rounded-[15px]">
+          <option value="">All</option>
+          <option value="">Books</option>
+          <option value="">Stationery</option>
+          <option value="">kids</option>
+          <option value="">bages</option>
+        </select>
+        
         <NavLink
           to="/cart"
           className="transition-colors hover:text-red-700 hover:underline underline-offset-4"

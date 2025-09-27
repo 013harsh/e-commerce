@@ -1,0 +1,122 @@
+import React from "react";
+
+const BookCard = () => {
+  return (
+//     <div className="w-full h-full text-xl ">
+//       <p className="px-1 font-bold">Book Name</p>
+
+//       <div class="grid grid-cols-3 grid-rows-4 gap-2 w-full py-3 px-4">
+//         <div
+//           style={{ gridRow: "span 4" }}
+//           className="flex justify-center py-3 border border-black rounded items-top"
+//         >
+//           <img
+//             className="w-[150px] h-[180px] object-contain"
+//             src="https://m.media-amazon.com/images/I/91WvJiO9VNL._UF1000,1000_QL80_.jpg"
+//             alt=""
+//           />
+//           <img
+//             className="object-contain w-[150px] h-[180px]"
+//             src="https://www.geekygallery.in/cdn/shop/files/naruto_6.jpg?v=1726255333&width=1946"
+//             alt=""
+//           />
+//           <img
+//             className="object-contain w-[150px] h-[180px]"
+//             src="https://www.geekygallery.in/cdn/shop/files/naruto_6.jpg?v=1726255333&width=1946"
+//             alt=""
+//           />
+//         </div>
+//         <div style={{ gridRow: "span 3" }} className="p-4 bg-blue-500 rounded ">
+//           span 2 columns
+//         </div>
+//         <div style={{ gridRow: "span 1" }} className="p-4 rounded bg-slate-400">
+//           span 2 rows
+//         </div>
+//         <div style={{ gridRow: "span 2" }} className="p-4 rounded bg-slate-500">
+//           box d
+//         </div>
+//       </div>
+//     </div>
+
+
+
+    <div className="w-full p-4 bg-gray-100">
+      {/* Top Picks Section */}
+      <div className="w-full p-4 mb-6 bg-white shadow rounded-xl">
+        <h2 className="mb-3 text-2xl font-bold">Top Picks BESTSELLERS</h2>
+        <div className="flex space-x-4 overflow-x-auto scrollbar-hide">
+          {[...Array(11)].map((_, i) => (
+             <img
+             key={i}
+             src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
+             alt="Book Cover"
+             className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
+           />
+          ))}
+        </div>
+      </div>
+
+      {/* Main Grid Section */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        {/* Big Banner (HarperCollins Style) */}
+        <div className="flex flex-col items-center justify-center p-6 shadow md:col-span-2 bg-gradient-to-r from-blue-200 to-blue-100 rounded-xl">
+          <h2 className="text-2xl font-bold">A JOURNEY INTO THE STORIES THAT MATTER</h2>
+          <div className="flex gap-3 mt-4">
+            {[...Array(5)].map((_, i) => (
+              <img
+              key={i}
+              src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
+              alt="Book Cover"
+              className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
+            />
+            
+            ))}
+          </div>
+        </div>
+
+        {/* Right Small Grid */}
+        <div className="flex flex-col gap-4">
+          <div className="p-4 bg-white shadow rounded-xl">
+            <h3 className="mb-2 font-semibold">Boost Your Prep with Top Books</h3>
+            <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+              {[...Array(3)].map((_, i) => (
+                  <img
+                  key={i}
+                  src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
+                  alt="Book Cover"
+                  className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
+                />
+              ))}
+            </div>
+          </div>
+          <div className="p-4 bg-white shadow rounded-xl">
+            <h3 className="mb-2 font-semibold">Master SSC with Parmar Sir</h3>
+            <div className="flex gap-2 overflow-x-auto">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="w-20 bg-gray-200 rounded h-28"></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Promo Grid */}
+      <div className="grid grid-cols-1 gap-4 mt-6 sm:grid-cols-2 md:grid-cols-3">
+        <div className="p-6 text-center text-white bg-indigo-800 shadow rounded-xl">
+          <h3 className="text-lg font-bold">Mythology Reads</h3>
+          <p>Up to 70% Off</p>
+        </div>
+        <div className="p-6 text-center text-white bg-blue-900 shadow rounded-xl">
+          <h3 className="text-lg font-bold">Hottest Read of 2025</h3>
+          <p>Up to 70% Off</p>
+        </div>
+        <div className="p-6 text-center text-white bg-purple-900 shadow rounded-xl">
+          <h3 className="text-lg font-bold">Exam Prep & More</h3>
+          <p>Up to 70% Off</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BookCard;

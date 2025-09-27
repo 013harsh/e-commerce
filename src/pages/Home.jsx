@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../component/Card/Card";
+import BookCard from "../component/Card/BookCard";
 
 const Home = () => {
   return (
@@ -18,23 +19,8 @@ const Home = () => {
           <Card />
         </div>
       </nav>
-      <nav className="w-full h-[400px] ">
-        <p className="flex items-center justify-between w-full px-5 font-bold">
-          <span className="text-[23px]">Trending Product</span>
-          <span className="">See More</span>
-        </p>
-      </nav>
-      <nav className="w-full h-[400px]">
-        <p className="flex items-center justify-between w-full px-5 font-bold">
-          <span className="text-[23px]">Kid's</span>
-          <span className="">See More</span>
-        </p>
-      </nav>
-      <nav className="w-full h-[400px]">
-        <p className="flex items-center justify-between w-full px-5 font-bold">
-          <span className="text-[23px]">Games</span>
-          <span className="">See More</span>
-        </p>
+      <nav className="w-full h-full p-3 bg-zinc-100">
+        <BookCard />
       </nav>
     </div>
   );
