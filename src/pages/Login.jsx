@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-80px)] bg-gray-500 px-4">
+    <div className="flex items-center justify-center min-h-[calc(100vh-80px)] bg-gray-500 px-4 ">
       <div className="w-full max-w-md p-6 rounded-lg shadow bg-zinc-300">
         <h1 className="mb-1 text-2xl font-bold text-zinc-900">Welcome back</h1>
         <p className="mb-6 text-sm text-gray-500">
@@ -47,7 +47,7 @@ const Login = () => {
         </p>
       </div>
     </div>
-  );  
+  );
 };
 
 export default Login;
