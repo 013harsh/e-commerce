@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Account from "../pages/Account";
 
 const NavBar = () => {
   return (
@@ -35,18 +36,18 @@ const NavBar = () => {
           <option value="">kids</option>
           <option value="">bages</option>
         </select>
-        
+
         <NavLink
           to="/cart"
-          className="transition-colors hover:text-red-700 hover:underline underline-offset-4"
+          className="font-semibold transition-colors hover:text-red-700 hover:underline underline-offset-4"
         >
           <i class="fa-solid fa-cart-shopping"></i>Cart
         </NavLink>
         <NavLink
           to="/account"
-          className="transition-colors hover:text-red-700 hover:underline underline-offset-4"
+          className="font-semibold transition-colors hover:text-red-700 hover:underline underline-offset-4"
         >
-          <i class="fa-solid fa-users"></i>{" "}
+          <i class="fa-solid fa-users"></i> Account
         </NavLink>
       </div>
     </nav>

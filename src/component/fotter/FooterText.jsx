@@ -29,7 +29,7 @@ const FooterText = () => {
         </ul>
       </div>
       <div className="flex flex-col gap-5">
-         <p className="font-bold">Let Us Help You</p>
+        <p className="font-bold">Let Us Help You</p>
         <ul>
           <li>Our Company</li>
           <li>Our Blog</li>

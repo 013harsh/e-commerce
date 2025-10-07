@@ -1,0 +1,90 @@
+1.📝 Writing Tools
+Pens (ballpoint, gel, fountain, marker, highlighter)
+Pencils (HB, 2B, mechanical)
+Erasers
+Sharpeners
+Markers & Sketch Pens
+
+2.📒 Paper & Notebooks
+
+Notebooks (ruled, unruled, graph)
+Diaries & Journals
+Sticky Notes
+Drawing Sheets
+Loose Sheets (A4, A3, etc.)
+Index Cards
+
+3.📂 Organization & Filing
+
+Folders & Files
+Ring Binders
+Clipboards
+Document Holders
+Envelopes
+✂️ Desk Essentials
+
+4. Ruler / Scale
+
+Scissors
+Glue Stick / Liquid Glue
+Stapler & Pins
+Paper Clips
+Binder Clips
+Tape (transparent, masking, double-sided)
+Punching Machine
+
+5. 🖇️ Other Useful Items
+
+Calculator
+Whiteboard Markers & Duster
+Correction Pen / Tape
+Geometry Box (compass, protractor, divider)
+Labels & Tags
+
+
+
+
+graph TD
+subgraph Global
+NavBar[NavBar component]
+end
+
+Home[Home (/)]
+Cart[Cart (/Cart)]
+Account[Account (/account)]
+Login[Login (/Login)]
+Categories[Categories (/categories)]
+Search[Search (/search)]
+NotFound[PageNotFound (*)]
+
+%% Global nav links
+NavBar --> Home
+NavBar --> Cart
+NavBar --> Account
+
+%% Component-driven navigation
+Card[Card component] --> Cart
+Home -. uses .-> Card
+
+%% Page-to-page links (note case mismatches)
+Account -. navigate('/login') .-> Login
+Login -. navigate('/Account') .-> Account
+
+%% Unlinked pages (no explicit links found)
+Categories -. no links .- Categories
+Search -. no links .- Search
+
+%% 404 is only by unmatched routes
+NotFound -. fallback only .- NotFound
+
+
+
+// WORK ON PAGES 
+
+SERACH ENGIN (SEARCH BAR ) 
+USER ( LOGIN REGISTRATION  LOGOUT) 
+HOME PAGE (KIDS BAGS & STATIONERY GAMES )
+CART PAGE
+ACCOUNT PAGE (USER DETAILS  ORDER DETAILS)
+PRODUCT PAGE (ALL DETAILS  ADD TO CART)
+CARD ADD DELETE UPDATED 
