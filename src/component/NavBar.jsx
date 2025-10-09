@@ -29,17 +29,23 @@ const NavBar = () => {
       </div>
 
       <div className="flex justify-end gap-x-6">
+        {/* cart */}
         <NavLink
           to="/cart"
           className="font-semibold transition-colors hover:text-red-700 hover:underline underline-offset-4"
         >
           <i class="fa-solid fa-cart-shopping"></i>Cart
         </NavLink>
+
+        {/* ACCOUNT */}
+
         <div className="relative">
           <div className="inline-block group">
             <div className="transition-colors cursor-pointer hover:text-red-700 ">
-              Account
+              <i class="fa-solid fa-user"></i>Account
             </div>
+
+            {/* Menu */}
 
             <div className="absolute right-0 z-50 invisible mt-2 transition-all duration-300 group-hover:opacity-100 group-hover:visible">
               <div className="absolute w-4 h-4 rotate-45 bg-black shadow -top-2 right-10" />
