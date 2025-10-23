@@ -19,10 +19,12 @@ const Home = () => {
           </div>          
         </div>
       </nav>
+
       <nav className="w-full h-full p-3">
         <div className="flex items-center justify-start w-full h-full gap-5 px-10 py-5 overflow-x-scroll scrollbar-hide flex-nowrap bg-zinc-100 ">
           <Card />
         </div>
+        
       </nav>
       <nav className="w-full h-full p-3 bg-zinc-100">
         <BookCard />

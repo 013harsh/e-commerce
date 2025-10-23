@@ -13,15 +13,15 @@ const Account = () => {
             <div className="space-y-3">
               <div>
                 <label className="block text-sm font-medium text-gray-700">Name</label>
-                <p className="text-gray-900">John Doe</p>
+                <p className="text-gray-900">{localStorage.getItem("name")}</p>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700">Email</label>
-                <p className="text-gray-900">john.doe@example.com</p>
+                <p className="text-gray-900">{localStorage.getItem("email")}</p>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700">Member Since</label>
-                <p className="text-gray-900">January 2024</p>
+                <p className="text-gray-900"> {new Date().toLocaleDateString()}</p>
               </div>
             </div>
           </div>
