@@ -20,3 +20,7 @@ GET currentuser
 PATCH updateuser
 DELETE deleteuser
 */
+
+import axios from "axios";
+
+export const RegisterUser =  async()
