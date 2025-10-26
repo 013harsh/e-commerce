@@ -1,26 +1,17 @@
-/*
-currentuser
-logout
-login 
-register
-updateuser
-deleteuser
-forgot password
-reset password
-change password
- */
+import axios from "../../api/axiosconfig";
+// import { loaduser } from "../reducer/UserSlice";
+// import { toast } from "react-toastify";
+// import { useDispatch } from "react-redux";
+// const dispatch = useDispatch();
 
-/*
-GET login
-POST register
-POST forgot password
-POST reset password
-POST change password
-GET currentuser
-PATCH updateuser
-DELETE deleteuser
-*/
 
-import axios from "axios";
-
-export const RegisterUser =  async()
+export const RegisterUser = (user) => async (dispatch, getstate) =>{
+    try{
+        const res = await axios.post("/users", user);
+        console.log(res);
+        // toast.success(res.data.message);
+    }catch(error){
+        console.log(error);
+        // toast.error(error.response.data.message);
+    }
+}

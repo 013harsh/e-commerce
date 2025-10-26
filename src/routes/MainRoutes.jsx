@@ -12,13 +12,13 @@ const MainRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/Cart" element={<Cart />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="/account" element={<Account />} />
       <Route path="/categories" element={<Categories />} />
       <Route path="/search" element={<SearchBar />} />
       <Route path="*" element={<PageNotFound />} />
-      <Route path="/Login" element={<Login />} />
-      <Route path="/Register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   );
 };

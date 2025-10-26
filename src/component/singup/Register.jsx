@@ -1,14 +1,21 @@
-import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { RegisterUser } from "../../store/action/UserAction";
+// import { toast } from "react-toastify";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  // const registerHandler =
-
-
+  const RegisterHandler = (user) => {
+    user.id = Date.now();
+    user.isAdim = false;
+    dispatch(RegisterUser(user));
+    console.log(user);
+    navigate("/login");
+  };
 
   return (
     <div className=" relative flex items-center justify-center min-h-[calc(100vh-80px)] bg-gray-500  px-4">
@@ -19,15 +26,13 @@ const Register = () => {
       />
 
       <div className="z-10 w-full max-w-md p-6 rounded-lg shadow bg-zinc-300">
-
         <h1 className="mb-1 text-3xl font-bold text-zinc-900">
           Create your account
         </h1>
 
         <p className="mb-6 text-lg text-gray-500">Sign up to start shopping</p>
 
-
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit(RegisterHandler)}>
           <input
             {...register("username")}
             type="text"
@@ -64,10 +69,8 @@ const Register = () => {
         </form>
 
         <p className="mt-6 text-sm text-center text-gray-600">
-          Already have an account?{" "}
-          <Link to="/login">login here</Link>
+          Already have an account? <Link to="/login">login here</Link>
         </p>
-
       </div>
     </div>
   );

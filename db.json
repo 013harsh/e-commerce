@@ -1,12 +1,20 @@
 {
-    "users": [
-    
-    ],
-
-    "carts": [
-        
-    ],
-    "products": [
-        
-    ]
+  "users": [
+    {
+      "id": 1761417133979,
+      "username": "harsh ",
+      "email": "harsh@gmail.com",
+      "password": " ",
+      "isAdim": false
+    },
+    {
+      "id": 1761499968232,
+      "username": "harsh ",
+      "email": "harsh@gmail.com",
+      "password": "hatrs",
+      "isAdim": false
+    }
+  ],
+  "carts": [],
+  "products": []
 }
