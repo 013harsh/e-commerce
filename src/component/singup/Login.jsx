@@ -1,13 +1,14 @@
-// import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import Register from "./Register";
 import { useForm } from "react-hook-form";
-// import axios from "axios";.
 
 const Login = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
+  const LoginHandler = (user) => {
+    const { email, password } = user;
+    console.log(user);
+  };
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-80px)] bg-gray-500 px-4 relative">
@@ -22,8 +23,7 @@ const Login = () => {
         <p className="mb-6 text-sm text-gray-900">
           Sign in to continue to your account
         </p>
-        <form className="space-y-4">
-          
+        <form className="space-y-4" onSubmit={handleSubmit(LoginHandler)}>
           <input
             {...register("email")}
             type="email"

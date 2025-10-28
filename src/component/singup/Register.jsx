@@ -14,6 +14,7 @@ const Register = () => {
     user.isAdim = false;
     dispatch(RegisterUser(user));
     console.log(user);
+    // toast.success("User registered successfully");
     navigate("/login");
   };
 
