@@ -6,15 +6,17 @@ import { RegisterUser } from "../../store/action/UserAction";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const RegisterHandler = (user) => {
     user.id = Date.now();
     user.isAdim = false;
-    dispatch(RegisterUser(user));
+    if (user.email === "" || user.password === "" || user.username === "" ) {
+      return alert("please fill all the fields");
+    }
     console.log(user);
-    // toast.success("User registered successfully");
+    dispatch(RegisterUser(user));
     navigate("/login");
   };
 
@@ -33,7 +35,8 @@ const Register = () => {
 
         <p className="mb-6 text-lg text-gray-500">Sign up to start shopping</p>
 
-        <form className="space-y-4" onSubmit={handleSubmit(RegisterHandler)}>
+        <form className="space-y-4" 
+        onSubmit={handleSubmit(RegisterHandler)}>
           <input
             {...register("username")}
             type="text"

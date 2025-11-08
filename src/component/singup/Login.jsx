@@ -1,13 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { LoginUser } from "../../store/action/UserAction";
 
 const Login = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
 
   const LoginHandler = (user) => {
-    const { email, password } = user;
+    if (user.email === "" || user.password === "") {
+      return alert("please fill all the fields");
+    }
     console.log(user);
+    dispatch(LoginUser(user));
+    navigate("/");
   };
 
   return (
@@ -18,7 +25,7 @@ const Login = () => {
         alt=""
       />
 
-      <div className="z-10 w-full max-w-md p-6 rounded-lg shadow bg-white">
+      <div className="z-10 w-full max-w-md p-6 bg-white rounded-lg shadow">
         <h1 className="mb-1 text-2xl font-bold text-zinc-900">Welcome back</h1>
         <p className="mb-6 text-sm text-gray-900">
           Sign in to continue to your account
