@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "1762784009798",
+      "username": "HARSH ",
+      "email": "hkaggarwal013@gmail.com",
+      "password": "KUMAR098098",
+      "isAdim": false,
+      "phone": "",
+      "streetAddress": "behal",
+      "city": "behal",
+      "state": "bheal",
+      "zipCode": "123456",
+      "country": "UK"
+    }
+  ],
+  "carts": [],
+  "products": []
+}

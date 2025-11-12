@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { LoginUser } from "../../store/action/UserAction";
+import { LoginUser } from "../store/action/UserAction";
 
 const Login = () => {
   const navigate = useNavigate();

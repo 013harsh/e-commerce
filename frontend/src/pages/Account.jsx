@@ -1,10 +1,13 @@
-import { useDispatch } from "react-redux";
-import { Logoutuser } from "../store/action/UserAction";
-import { Deleteuser } from "../store/action/UserAction";
+import { useDispatch, useSelector } from "react-redux";
+import { Deleteuser, Logoutuser } from "../store/action/UserAction";
+import { useNavigate } from "react-router-dom";
 
 const Account = () => {
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.user);
+  const userData = localStorage.getItem("user");
+  const currentUser = user || (userData ? JSON.parse(userData) : null);
   const dispatch = useDispatch();
-  
 
   const Logouthandler = () => {
     console.log("logged out");
@@ -14,15 +17,20 @@ const Account = () => {
 
   const delethandler = () => {
     console.log("account deleted");
-    const currentUser = JSON.parse(localStorage.getItem("user"));
-    if (currentUser && currentUser.id) {
-      console.log("Deleting user with ID:", currentUser.id);
-      dispatch(Deleteuser(currentUser)); 
+    const storedUser = localStorage.getItem("user");
+    const currentUserData = storedUser ? JSON.parse(storedUser) : null;
+    if (currentUserData && currentUserData.id) {
+      console.log("Deleting user with ID:", currentUserData.id);
+      dispatch(Deleteuser(currentUserData));
     } else {
       alert("No user found to delete");
-      console.log("Current user data:", currentUser);
+      console.log("Current user data:", currentUserData);
     }
   };
+
+  if (!currentUser) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="min-h-screen py-8 bg-gray-50">
@@ -38,22 +46,19 @@ const Account = () => {
                 <label className="block text-sm font-medium text-gray-700">
                   Name
                 </label>
-                <p className="text-gray-900">{}</p>
+                <p className="text-gray-900">{currentUser.username}</p>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700">
                   Email
                 </label>
-                <p className="text-gray-900">{localStorage.getItem("email")}</p>
+                <p className="text-gray-900">{currentUser.email}</p>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700">
-                  Member Since
+                  Phone number
                 </label>
-                <p className="text-gray-900">
-                  {" "}
-                  {new Date().toLocaleDateString()}
-                </p>
+                <p className="text-gray-900"> {currentUser.phone}</p>
               </div>
             </div>
           </div>
@@ -62,7 +67,10 @@ const Account = () => {
           <div className="p-6 bg-white rounded-lg shadow-md">
             <h2 className="mb-4 text-xl font-semibold">Quick Actions</h2>
             <div className="space-y-3">
-              <button className="w-full px-4 py-2 font-semibold text-white transition-colors bg-red-600 rounded-lg hover:bg-red-700">
+              <button
+                onClick={() => navigate("/editprofile")}
+                className="w-full px-4 py-2 font-semibold text-white transition-colors bg-red-600 rounded-lg hover:bg-red-700"
+              >
                 Edit Profile
               </button>
               <button

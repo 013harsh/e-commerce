@@ -5,8 +5,10 @@ import Account from "../pages/Account";
 import Categories from "../pages/Categories";
 import SearchBar from "../pages/SearchBar";
 import PageNotFound from "../pages/PageNotFound";
-import Login from "../component/singup/Login";
-import Register from "../component/singup/Register";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import EditProfile from "../pages/EditProfile";
+
 
 const MainRoutes = () => {
   return (
@@ -19,6 +21,7 @@ const MainRoutes = () => {
       <Route path="*" element={<PageNotFound />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/editprofile" element={<EditProfile />} />
     </Routes>
   );
 };

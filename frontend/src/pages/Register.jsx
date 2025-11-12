@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { RegisterUser } from "../../store/action/UserAction";
+import { RegisterUser } from "../store/action/UserAction";
 // import { toast } from "react-toastify";
 
 const Register = () => {

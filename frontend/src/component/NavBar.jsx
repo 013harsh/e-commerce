@@ -41,8 +41,11 @@ const NavBar = () => {
 
         <div className="relative">
           <div className="inline-block group">
-            <div className="transition-colors cursor-pointer hover:text-red-700 ">
-              <i class="fa-solid fa-user"></i>Account
+            <div
+              className="transition-colors cursor-pointer hover:text-red-700 "
+              onClick={() => navigate("/account")}
+            >
+              <i class="fa-solid fa-user"></i> Account
             </div>
 
             {/* Menu */}
@@ -113,16 +116,18 @@ const NavBar = () => {
                     </li>
                     <li>
                       <NavLink
-                        to="/addresses"
+                        to="/youraddress"
                         className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
+                        onClick = {() => navigate("/")}
                       >
                         Your Addresses
                       </NavLink>
                     </li>
                     <li>
                       <NavLink
-                        to="/change-password"
+                        to="/editprofile"
                         className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
+                        onClick = {() => navigate("/EditProfile")}
                       >
                         Change Password
                       </NavLink>
