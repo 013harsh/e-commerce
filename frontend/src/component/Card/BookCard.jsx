@@ -11,12 +11,12 @@ const BookCard = () => {
         <h2 className="mb-3 text-2xl font-semibold">Top Picks BESTSELLERS</h2>
         <div className="flex space-x-4 overflow-x-auto scrollbar-hide">
           {[...Array(11)].map((_, i) => (
-             <img
-             key={i}
-             src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
-             alt="Book Cover"
-             className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
-           />
+            <img
+              key={i}
+              src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
+              alt="Book Cover"
+              className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
+            />
           ))}
         </div>
       </div>
@@ -25,16 +25,17 @@ const BookCard = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {/* Big Banner (HarperCollins Style) */}
         <div className="flex flex-col items-center justify-center p-6 shadow md:col-span-2 bg-gradient-to-r from-blue-200 to-blue-100 rounded-xl">
-          <h2 className="text-2xl font-semibold">A JOURNEY INTO THE STORIES THAT MATTER</h2>
+          <h2 className="text-2xl font-semibold">
+            A JOURNEY INTO THE STORIES THAT MATTER
+          </h2>
           <div className="flex gap-3 mt-4">
             {[...Array(5)].map((_, i) => (
               <img
-              key={i}
-              src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
-              alt="Book Cover"
-              className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
-            />
-            
+                key={i}
+                src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
+                alt="Book Cover"
+                className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
+              />
             ))}
           </div>
         </div>
@@ -42,10 +43,12 @@ const BookCard = () => {
         {/* Right Small Grid */}
         <div className="flex flex-col gap-4">
           <div className="p-4 bg-white shadow rounded-xl">
-            <h3 className="mb-2 font-semibold">Boost Your Prep with Top Books</h3>
+            <h3 className="mb-2 font-semibold">
+              Boost Your Prep with Top Books
+            </h3>
             <div className="flex gap-2 overflow-x-auto scrollbar-hide">
               {[...Array(3)].map((_, i) => (
-                  <img
+                <img
                   key={i}
                   src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
                   alt="Book Cover"
