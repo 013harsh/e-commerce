@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Card from "./Card";
 
 const BookCard = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full p-4 bg-gray-100">
       <div>
@@ -9,12 +12,15 @@ const BookCard = () => {
       {/* Top Picks Section */}
       <div className="w-full p-4 mb-6 bg-white shadow rounded-xl">
         <h2 className="mb-3 text-2xl font-semibold">Top Picks BESTSELLERS</h2>
-        <div className="flex space-x-4 overflow-x-auto scrollbar-hide">
-          {[...Array(11)].map((_, i) => (
+        <div
+          className="flex space-x-4 overflow-x-auto scrollbar-hide"
+          onClick={() => navigate("card")}
+        >
+          {[...Array(1)].map((_, i) => (
             <img
               key={i}
-              src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
-              alt="Book Cover"
+              src="" // Example: The Alchemist
+              alt=" "
               className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
             />
           ))}
@@ -29,11 +35,11 @@ const BookCard = () => {
             A JOURNEY INTO THE STORIES THAT MATTER
           </h2>
           <div className="flex gap-3 mt-4">
-            {[...Array(5)].map((_, i) => (
+            {[...Array(1)].map((_, i) => (
               <img
                 key={i}
-                src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
-                alt="Book Cover"
+                src=""
+                alt=""
                 className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
               />
             ))}
@@ -47,11 +53,11 @@ const BookCard = () => {
               Boost Your Prep with Top Books
             </h3>
             <div className="flex gap-2 overflow-x-auto scrollbar-hide">
-              {[...Array(3)].map((_, i) => (
+              {[...Array(1)].map((_, i) => (
                 <img
                   key={i}
-                  src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" // Example: The Alchemist
-                  alt="Book Cover"
+                  src="" // Example: The Alchemist
+                  alt=" "
                   className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
                 />
               ))}
