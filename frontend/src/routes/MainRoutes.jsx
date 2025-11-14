@@ -16,6 +16,7 @@ import PaperNotebooks from "../pages/product/Categories/PaperNotebooks";
 import OtherUsefultems from "../pages/product/Categories/OtherUsefultems";
 import RulerScale from "../pages/product/Categories/RulerScale";
 import WritingTools from "../pages/product/Categories/WritingTools";
+import CreateProduct from "../pages/admin/CreateProduct";
 
 const MainRoutes = () => {
   return (
@@ -37,6 +38,7 @@ const MainRoutes = () => {
       <Route path="/otherusefultems" element={<OtherUsefultems />} />
       <Route path="/rulerscale" element={<RulerScale />} />
       <Route path="/writingtools" element={<WritingTools />} />
+      <Route path="/createproduct" element={<CreateProduct />} />
     </Routes>
   );
 };

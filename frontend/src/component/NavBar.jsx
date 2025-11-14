@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import CreateProduct from "../pages/admin/CreateProduct";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -108,10 +109,11 @@ const NavBar = () => {
                     </li>
                     <li>
                       <NavLink
-                        to="/gift-cards"
+                      onClick={() => navigate("/CreateProduct")}
+                        to="/createproduct"
                         className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
                       >
-                        Your Gift Certificate
+                        createproduct
                       </NavLink>
                     </li>
                     <li>
