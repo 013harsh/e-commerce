@@ -33,7 +33,7 @@ const Home = () => {
           <Homecard1 />
         </div>
       </nav>
-      <nav className=" flex w-full h-full p-3 bg-zinc-100">
+      <nav className=" flex w-full  p-3 bg-zinc-100">
         <BookCard />
       </nav>
     </div>

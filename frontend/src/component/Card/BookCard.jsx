@@ -1,6 +1,4 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import Card from "./Card";
 
 const BookCard = () => {
   const navigate = useNavigate();
@@ -14,7 +12,7 @@ const BookCard = () => {
         <h2 className="mb-3 text-2xl font-semibold">Top Picks BESTSELLERS</h2>
         <div
           className="flex space-x-4 overflow-x-auto scrollbar-hide"
-          onClick={() => navigate("card")}
+          onClick={() => navigate("/BookProduct")}
         >
           {[...Array(1)].map((_, i) => (
             <img
@@ -30,7 +28,10 @@ const BookCard = () => {
       {/* Main Grid Section */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {/* Big Banner (HarperCollins Style) */}
-        <div className="flex flex-col items-center justify-center p-6 shadow md:col-span-2 bg-gradient-to-r from-blue-200 to-blue-100 rounded-xl">
+        <div
+          onClick={() => navigate("/BookProduct")}
+          className="flex flex-col items-center justify-center p-6 shadow md:col-span-2 bg-gradient-to-r from-blue-200 to-blue-100 rounded-xl"
+        >
           <h2 className="text-2xl font-semibold">
             A JOURNEY INTO THE STORIES THAT MATTER
           </h2>
@@ -52,7 +53,10 @@ const BookCard = () => {
             <h3 className="mb-2 font-semibold">
               Boost Your Prep with Top Books
             </h3>
-            <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+            <div
+              onClick={() => navigate("/BookProduct")}
+              className="flex gap-2 overflow-x-auto scrollbar-hide"
+            >
               {[...Array(1)].map((_, i) => (
                 <img
                   key={i}
@@ -65,7 +69,10 @@ const BookCard = () => {
           </div>
           <div className="p-4 bg-white shadow rounded-xl">
             <h3 className="mb-2 font-semibold">JEE/JEE-ADVANCE AND NEET</h3>
-            <div className="flex gap-2 overflow-x-auto">
+            <div
+              onClick={() => navigate("/BookProduct")}
+              className="flex gap-2 overflow-x-auto"
+            >
               {[...Array(3)].map((_, i) => (
                 <div key={i} className="w-20 bg-gray-200 rounded h-28"></div>
               ))}

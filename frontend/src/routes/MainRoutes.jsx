@@ -9,7 +9,7 @@ import EditProfile from "../pages/EditProfile";
 import Homecard1 from "../component/Card/Homecard1";
 import StationeryProduct from "../pages/product/StationeryProduct";
 import StationeryCategory from "../pages/product/StationeryCategory";
-import BookProduct from "../pages/product/bookproduct";
+import BookProduct from "../pages/product/BookProduct";
 import Card from "../component/Card/Card";
 import FilingOrganization from "../pages/product/Categories/FilingOrganization";
 import PaperNotebooks from "../pages/product/Categories/PaperNotebooks";
@@ -17,6 +17,7 @@ import OtherUsefultems from "../pages/product/Categories/OtherUsefultems";
 import RulerScale from "../pages/product/Categories/RulerScale";
 import WritingTools from "../pages/product/Categories/WritingTools";
 import CreateProduct from "../pages/admin/CreateProduct";
+import ProductOverview from "../component/Card/ProductOverview";
 
 const MainRoutes = () => {
   return (
@@ -39,6 +40,8 @@ const MainRoutes = () => {
       <Route path="/rulerscale" element={<RulerScale />} />
       <Route path="/writingtools" element={<WritingTools />} />
       <Route path="/createproduct" element={<CreateProduct />} />
+      <Route path="/bookproduct" element={<BookProduct />} />
+      <Route path="/productoverview" element={<ProductOverview />} />
     </Routes>
   );
 };
