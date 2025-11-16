@@ -48,7 +48,7 @@ export const LoginUser = (user) => async (dispatch, getstate) => {
       return alert("wrong password");
     }
     console.log(validuser[0]);
-    alert("login successful");
+
     localStorage.setItem("user", JSON.stringify(validuser[0]));
     dispatch(loaduser(validuser[0]));
   } catch (error) {
@@ -71,7 +71,7 @@ export const Deleteuser = (user) => async (dispatch, getstate) => {
     const { data } = await axios.delete(`/users/${user.id}`);
     localStorage.removeItem("user");
     console.log("user deleted successfully");
-    alert("Account deleted successfully");
+
     dispatch(remover());
   } catch (error) {
     console.log("Delete error:", error);
@@ -106,7 +106,6 @@ export const UpdateuserDetails = (id, user) => async (dispatch, getstate) => {
     const { data } = await axios.patch(`/users/${storeuser.id}`, user);
     dispatch(Currentuser());
     localStorage.setItem("user", JSON.stringify(data));
-    alert("Profile updated successfully");
   } catch (error) {
     console.log(error);
   }

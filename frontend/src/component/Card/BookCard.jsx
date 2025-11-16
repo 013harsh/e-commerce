@@ -17,7 +17,7 @@ const BookCard = () => {
           {[...Array(1)].map((_, i) => (
             <img
               key={i}
-              src="" // Example: The Alchemist
+              src="https://www.google.com/imgres?q=hc%20verma%20book&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81tTJjH9A%2BL._UF1000%2C1000_QL80_.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FConcepts-Physics-Harish-Chandra-Verma-ebook%2Fdp%2FB07M6ZPRLP&docid=q3mOHwGpCdUsGM&tbnid=wvEQ3S15ykI0FM&vet=12ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA..i&w=784&h=1000&hcb=2&ved=2ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA" // Example: The Alchemist
               alt=" "
               className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
             />
@@ -39,7 +39,7 @@ const BookCard = () => {
             {[...Array(1)].map((_, i) => (
               <img
                 key={i}
-                src=""
+                src="https://www.google.com/imgres?q=hc%20verma%20book&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81tTJjH9A%2BL._UF1000%2C1000_QL80_.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FConcepts-Physics-Harish-Chandra-Verma-ebook%2Fdp%2FB07M6ZPRLP&docid=q3mOHwGpCdUsGM&tbnid=wvEQ3S15ykI0FM&vet=12ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA..i&w=784&h=1000&hcb=2&ved=2ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA"
                 alt=""
                 className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
               />
@@ -60,7 +60,7 @@ const BookCard = () => {
               {[...Array(1)].map((_, i) => (
                 <img
                   key={i}
-                  src="" // Example: The Alchemist
+                  src="https://www.google.com/imgrs?q=hc%20verma%20book&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81tTJjH9A%2BL._UF1000%2C1000_QL80_.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FConcepts-Physics-Harish-Chandra-Verma-ebook%2Fdp%2FB07M6ZPRLP&docid=q3mOHwGpCdUsGM&tbnid=wvEQ3S15ykI0FM&vet=12ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA..i&w=784&h=1000&hcb=2&ved=2ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA" // Example: The Alchemist
                   alt=" "
                   className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
                 />

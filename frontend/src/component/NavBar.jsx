@@ -113,7 +113,7 @@ const NavBar = () => {
                         to="/createproduct"
                         className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
                       >
-                        createproduct
+                        AddProduct
                       </NavLink>
                     </li>
                     <li>

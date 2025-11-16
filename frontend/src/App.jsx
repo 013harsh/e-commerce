@@ -4,12 +4,14 @@ import Footer from "./component/Footer";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Currentuser } from "./store/action/UserAction";
+import { ReadProduct } from "./store/action/ProductAction";
 
 const App = () => {
   const dispatch = useDispatch();
   
   useEffect(() => {
     dispatch(Currentuser());
+    dispatch(ReadProduct());
   },[]);
 
   return (
