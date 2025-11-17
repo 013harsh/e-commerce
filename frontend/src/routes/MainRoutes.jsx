@@ -42,6 +42,7 @@ const MainRoutes = () => {
       <Route path="/createproduct" element={<CreateProduct />} />
       <Route path="/bookproduct" element={<BookProduct />} />
       <Route path="/productoverview" element={<ProductOverview />} />
+      <Route path="/productoverview/:productId" element={<ProductOverview />} />
     </Routes>
   );
 };

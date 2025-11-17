@@ -83,47 +83,10 @@ const ProductOverview = () => {
               </p>
             </div>
 
-            {/* Product Details */}
-            <div className="grid grid-cols-2 gap-4 text-sm">
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Category:</span>
-                  <span className="font-medium">Self-Help</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Pages:</span>
-                  <span className="font-medium">156</span>
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Language:</span>
-                  <span className="font-medium">English</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Format:</span>
-                  <span className="font-medium">Paperback</span>
-                </div>
-              </div>
-            </div>
+         
+         
 
-            {/* Rating */}
-            <div className="flex items-center gap-2">
-              <div className="flex text-yellow-400">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span className="text-gray-300">★</span>
-              </div>
-              <span className="text-gray-600">4.5 (1,250 reviews)</span>
-            </div>
-
-            {/* Quantity Selector */}
-            <div className="flex items-center gap-4">
-              <span className="text-gray-700 font-medium">Quantity:</span>
-              <div className="flex items-center border border-gray-300 rounded-lg">
-                <button className="px-3 py-2 hover:bg-gray-100 transition-colors">-</button>
-                <span className="px-4 py-2 border-x border-gray-300 min-w-[60px] text-center">1</span>
-                <button className="px-3 py-2 hover:bg-gray-100 transition-colors">+</button>
-              </div>
-            </div>
+           
 
             {/* Action Buttons */}
             <div className="space-y-3">
