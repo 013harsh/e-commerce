@@ -17,7 +17,7 @@ import OtherUsefultems from "../pages/product/Categories/OtherUsefultems";
 import RulerScale from "../pages/product/Categories/RulerScale";
 import WritingTools from "../pages/product/Categories/WritingTools";
 import CreateProduct from "../pages/admin/CreateProduct";
-import ProductOverview from "../component/Card/ProductOverview";
+import ProductDetails from "../pages/admin/ProductDetails";
 
 const MainRoutes = () => {
   return (
@@ -31,9 +31,8 @@ const MainRoutes = () => {
       <Route path="/editprofile" element={<EditProfile />} />
       <Route path="/homecard1" element={<Homecard1 />} />
       <Route path="/stationeryproduct" element={<StationeryProduct />} />
-      <Route path="/categor/:categoryId" element={<StationeryCategory />} />
+      <Route path="/categor/:id" element={<StationeryCategory />} />
       <Route path="/bookproduct" element={<BookProduct />} />
-      <Route path="/card" element={<Card />} />
       <Route path="/filingorganization" element={<FilingOrganization />} />
       <Route path="/papernotebooks" element={<PaperNotebooks />} />
       <Route path="/otherusefultems" element={<OtherUsefultems />} />
@@ -41,8 +40,8 @@ const MainRoutes = () => {
       <Route path="/writingtools" element={<WritingTools />} />
       <Route path="/createproduct" element={<CreateProduct />} />
       <Route path="/bookproduct" element={<BookProduct />} />
-      <Route path="/productoverview" element={<ProductOverview />} />
-      <Route path="/productoverview/:productId" element={<ProductOverview />} />
+      <Route path="/card" element={<Card />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
     </Routes>
   );
 };

@@ -7,7 +7,7 @@ export const RegisterUser = (user) => async (dispatch, getstate) => {
       `/users?email=${user.email}`
     );
     if (existinguser.length > 0) {
-      return alert("user email already exists");
+      return console.log("user email already exists");
     }
 
     if (
@@ -15,15 +15,15 @@ export const RegisterUser = (user) => async (dispatch, getstate) => {
       user.password === "" ||
       (user.username === "" && user.username.trim().length === 0)
     ) {
-      return alert("please fill all the fields");
+      return console.log("please fill all the fields");
     }
     if (user.password.length < 8) {
-      return alert("password must be at least 6 characters long");
+      return console.log("password must be at least 6 characters long");
     }
 
     const { data: res } = await axios.post("/users", user);
-    console.log(res.data);
-    dispatch(loaduser(res.data));
+    console.log(res);
+    dispatch(loaduser(res));
   } catch (error) {
     console.log(error);
   }
@@ -35,7 +35,7 @@ export const LoginUser = (user) => async (dispatch, getstate) => {
       `/users?email=${user.email}&password=${user.password}`
     );
     if (emailuser.length === 0) {
-      return alert("user not found");
+      return console.log("user not found");
     }
     if (user.email === "" || user.password === "") {
     }
@@ -45,7 +45,7 @@ export const LoginUser = (user) => async (dispatch, getstate) => {
     );
 
     if (validuser.length === 0) {
-      return alert("wrong password");
+      return console.log("wrong password");
     }
     console.log(validuser[0]);
 
@@ -82,7 +82,7 @@ export const Currentuser = () => async (dispatch, getstate) => {
   try {
     const currentuser = JSON.parse(localStorage.getItem("user"));
     if (!currentuser) {
-      return alert("please login to continue");
+      return console.log("no user found");
     }
     if (currentuser) {
       dispatch(loaduser(currentuser));
@@ -101,7 +101,7 @@ export const UpdateuserDetails = (id, user) => async (dispatch, getstate) => {
     const storeuser = Storeuser ? JSON.parse(Storeuser) : null;
 
     if (!storeuser) {
-      alert("please login to continue");
+      console.log("please login to continue");
     }
     const { data } = await axios.patch(`/users/${storeuser.id}`, user);
     dispatch(Currentuser());
