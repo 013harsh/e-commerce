@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Homecard1 from "../../component/Card/Homecard1";
 
 
 const ProductDetails = () => {
@@ -15,9 +16,9 @@ const ProductDetails = () => {
 
   return (
     <div className="bg-gray-100">
-      <div className="max-w-full  mx-auto h-screen p-16">
+      <div className="max-w-full  mx-auto h-full p-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="relative w-[50%] h-[100%]">
+          <div className="relative w-[50%] h-[350px]">
             <img
               src={product.image}
               alt={product.name}
@@ -58,6 +59,9 @@ const ProductDetails = () => {
               </button>
             </div>
           </div>
+          <div className="mt-[400px]">
+            <Homecard1/>
+            </div>
         </div>
       </div>
 

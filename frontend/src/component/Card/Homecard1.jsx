@@ -56,7 +56,9 @@ const Homecard1 = () => {
           </div>
         ))}
       </div>
+      
     </div>
+    
   );
 };
 

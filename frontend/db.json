@@ -6,7 +6,7 @@
       "email": "hkaggarwal013@gmail.com",
       "password": "KUMAR098098",
       "isAdim": false,
-      "phone": "",
+      "phone": "7897897896",
       "streetAddress": "behal",
       "city": "behal",
       "state": "bheal",
@@ -133,6 +133,39 @@
       "description": "Amazon Brand - Solimo Notebooks, Spiral-Bound, Lightweight, Vibrant Colours (A5,",
       "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRO35mOl8CuyWzDdFuAiHzOZ3puaUeixluiEgvlfIA_z8qHZkZR7X1kTbz47kuABWYB51fkhWiD4n-w-u8fZSrtW1OXjzBJjn6I04N1XFzJ2lEDZKofKjzKpQ",
       "subcategory": "paper-notebooks"
+    },
+    {
+      "id": "1763736670688",
+      "name": "Viktor E. Frankl And The Search For Meaning",
+      "brand": "",
+      "category": "books",
+      "price": 433,
+      "stock": 0,
+      "description": "The official journalling companion on finding meaning in an unpredictable world, inspired by the enduring wisdom of bestselling author, psychiatrist and Holocaust survivor Viktor Frankl",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS6vOSS0yNqjSPjXEcvIGPHHpCnvPIqvi4MocyGeBCa3TOXRedR2A2xh8J1td59MtvhThB9uAw1g1aNEYsQ_TTlYrOznMvSUiqZcWnOks4Aen871TRnhbpfSA",
+      "subcategory": "non-fiction"
+    },
+    {
+      "id": "1763736802948",
+      "name": "The Metamorphosis",
+      "brand": "Franz Kafk",
+      "category": "books",
+      "price": 77,
+      "stock": 0,
+      "description": "One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.' Thus begins The Metamorphosis, cited as one of the seminal works of fiction of the twentieth century. A story of Gregor Samsa, a travelling salesman, who wakes up one day to discover that he has metamorphosed into a bug, The Metamorphosis is a book that",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTVYnT61c4yV6yJagQvl3MLIFZPkckr9sGVhlPhhR412_WE8uPYWdDChBGw29R0tNxFNdGUD1sGgNqLdO4xMDpre4S1o1EAE9jd6DQF1xTACe9A5QA0rtzZdg",
+      "subcategory": "other-books"
+    },
+    {
+      "id": "1763736888136",
+      "name": "That Night: Four Friends Twenty Years",
+      "brand": "",
+      "category": "books",
+      "price": 32,
+      "stock": 1,
+      "description": "Natasha, Riya, Anjali and Katherine were best friends in college - each different from the other yet inseparable - until that night. It was the night that began with a bottle of whisky and a game of Ouija but ended with the death of Sania, their unlikeable hostel mate. The friends vowed never to discuss that fateful night, a pact that had kept their friendship and guilt dormant for the last twenty years. But now, someone has begun to mess with them, threatening to reveal the truth that only Sania knew. Is it a hacker playing on their guilt or has Sania's ghost really returned to avenge her death? As the faceless enemy closes in on them, the friends come together once again to recount what really happened that night. But when the story is retold by each of them, the pieces don't fit. Because none of them is telling the whole truth.",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRoUVi5jh103ciEP9ehsnwz4xxxsU3gSJw7evLdjs1N-sWIL62vKrne83cjP2tJUtSRCNYSZO02IGMSzvRdio02l43LiRTCivhe8HoEzmjHejjJhcvITN2DCQ",
+      "subcategory": "other-books"
     }
   ],
   "carts": []
