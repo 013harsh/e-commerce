@@ -8,7 +8,6 @@ import Register from "../pages/Register";
 import EditProfile from "../pages/EditProfile";
 import Homecard1 from "../component/Card/Homecard1";
 import StationeryProduct from "../pages/product/StationeryProduct";
-import StationeryCategory from "../pages/product/StationeryCategory";
 import BookProduct from "../pages/product/BookProduct";
 import Card from "../component/Card/Card";
 import FilingOrganization from "../pages/product/Categories/FilingOrganization";
@@ -31,7 +30,6 @@ const MainRoutes = () => {
       <Route path="/editprofile" element={<EditProfile />} />
       <Route path="/homecard1" element={<Homecard1 />} />
       <Route path="/stationeryproduct" element={<StationeryProduct />} />
-      <Route path="/categor/:id" element={<StationeryCategory />} />
       <Route path="/bookproduct" element={<BookProduct />} />
       <Route path="/filingorganization" element={<FilingOrganization />} />
       <Route path="/papernotebooks" element={<PaperNotebooks />} />

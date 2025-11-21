@@ -1,33 +1,56 @@
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const BookCard = () => {
   const navigate = useNavigate();
+  const products = useSelector((state) => state.product.products);
+
+  // If you want to show specific book subcategories
+  const getBooksBySubcategory = (subcategory) => {
+    if (!products || products.length === 0) return [];
+    return products
+      .filter(
+        (product) =>
+          product.category === "books" && product.subcategory === subcategory
+      )
+      .slice(-5)
+      .reverse();
+  };
+  const displayProducts = getBooksBySubcategory();
+  if (displayProducts.length === 0) {
+    return <div className="text-center py-8">No new arrivals available</div>;
+  }
+  const ncertBooks = getBooksBySubcategory("Ncert");
+  const otherBooks = getBooksBySubcategory("other-books");
+  const fictionBooks = getBooksBySubcategory("fiction");
+  const nonFictionBooks = getBooksBySubcategory("non-fiction");
+
   return (
     <div className="w-full p-4 bg-gray-100">
       <div>
         <h1 className="mb-5 text-3xl font-bold arial ">Books Section</h1>
       </div>
-      {/* Top Picks Section */}
-      <div className="w-full p-4 mb-6 bg-white shadow rounded-xl">
-        <h2 className="mb-3 text-2xl font-semibold">Top Picks BESTSELLERS</h2>
-        <div
-          className="flex space-x-4 overflow-x-auto scrollbar-hide"
-          onClick={() => navigate("/BookProduct")}
-        >
-          {[...Array(1)].map((_, i) => (
-            <img
-              key={i}
-              src="https://www.google.com/imgres?q=hc%20verma%20book&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81tTJjH9A%2BL._UF1000%2C1000_QL80_.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FConcepts-Physics-Harish-Chandra-Verma-ebook%2Fdp%2FB07M6ZPRLP&docid=q3mOHwGpCdUsGM&tbnid=wvEQ3S15ykI0FM&vet=12ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA..i&w=784&h=1000&hcb=2&ved=2ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA" // Example: The Alchemist
-              alt=" "
-              className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
-            />
+
+      <div className="w-full  p-4 mb-6 bg-white shadow rounded-xl">
+        <h2 className="mb-3 text-2xl font-bold">NCERT</h2>
+        <div className="flex space-x-4">
+          {ncertBooks.map((product) => (
+            <div
+              key={product.id}
+              className="flex space-x-4 overflow-x-auto scrollbar-hide"
+              onClick={() => navigate("/BookProduct")}
+            >
+              <img
+                src={product.image}
+                alt={product.name}
+                className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
+              />
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Main Grid Section */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        {/* Big Banner (HarperCollins Style) */}
         <div
           onClick={() => navigate("/BookProduct")}
           className="flex flex-col items-center justify-center p-6 shadow md:col-span-2 bg-gradient-to-r from-blue-200 to-blue-100 rounded-xl"
@@ -36,52 +59,68 @@ const BookCard = () => {
             A JOURNEY INTO THE STORIES THAT MATTER
           </h2>
           <div className="flex gap-3 mt-4">
-            {[...Array(1)].map((_, i) => (
+            {otherBooks.map((product) => (
+            <div
+              key={product.id}
+              className="flex space-x-4 overflow-x-auto scrollbar-hide"
+              onClick={() => navigate("/BookProduct")}
+            >
               <img
-                key={i}
-                src="https://www.google.com/imgres?q=hc%20verma%20book&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81tTJjH9A%2BL._UF1000%2C1000_QL80_.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FConcepts-Physics-Harish-Chandra-Verma-ebook%2Fdp%2FB07M6ZPRLP&docid=q3mOHwGpCdUsGM&tbnid=wvEQ3S15ykI0FM&vet=12ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA..i&w=784&h=1000&hcb=2&ved=2ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA"
-                alt=""
+                src={product.image}
+                alt={product.name}
                 className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
               />
-            ))}
+            </div>
+          ))}
           </div>
         </div>
 
-        {/* Right Small Grid */}
         <div className="flex flex-col gap-4">
           <div className="p-4 bg-white shadow rounded-xl">
-            <h3 className="mb-2 font-semibold">
-              Boost Your Prep with Top Books
-            </h3>
+            <h3 className="mb-2 text-2xl font-semibold">Friction</h3>
             <div
               onClick={() => navigate("/BookProduct")}
               className="flex gap-2 overflow-x-auto scrollbar-hide"
             >
-              {[...Array(1)].map((_, i) => (
-                <img
-                  key={i}
-                  src="https://www.google.com/imgrs?q=hc%20verma%20book&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81tTJjH9A%2BL._UF1000%2C1000_QL80_.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FConcepts-Physics-Harish-Chandra-Verma-ebook%2Fdp%2FB07M6ZPRLP&docid=q3mOHwGpCdUsGM&tbnid=wvEQ3S15ykI0FM&vet=12ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA..i&w=784&h=1000&hcb=2&ved=2ahUKEwibu9itg_aQAxWuyjgGHQ83GJcQM3oECBgQAA" // Example: The Alchemist
-                  alt=" "
-                  className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
-                />
-              ))}
+              {fictionBooks.map((product) => (
+            <div
+              key={product.id}
+              className="flex space-x-4 overflow-x-auto scrollbar-hide"
+              onClick={() => navigate("/BookProduct")}
+            >
+              <img
+                src={product.image}
+                alt={product.name}
+                className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
+              />
+            </div>
+          ))}
             </div>
           </div>
           <div className="p-4 bg-white shadow rounded-xl">
-            <h3 className="mb-2 font-semibold">JEE/JEE-ADVANCE AND NEET</h3>
+            <h3 className="mb-2 text-2xl font-semibold">Non-Friction</h3>
             <div
               onClick={() => navigate("/BookProduct")}
               className="flex gap-2 overflow-x-auto"
             >
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="w-20 bg-gray-200 rounded h-28"></div>
-              ))}
+              {nonFictionBooks.map((product) => (
+            <div
+              key={product.id}
+              className="flex space-x-4 overflow-x-auto scrollbar-hide"
+              onClick={() => navigate("/BookProduct")}
+            >
+              <img
+                src={product.image}
+                alt={product.name}
+                className="flex-shrink-0 object-cover w-32 h-48 rounded-lg shadow"
+              />
+            </div>
+          ))}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Promo Grid */}
       <div className="grid grid-cols-1 gap-4 mt-6 sm:grid-cols-2 md:grid-cols-3">
         <div className="p-6 text-center text-white bg-indigo-800 shadow rounded-xl">
           <h3 className="text-lg font-semibold">Mythology Reads</h3>
@@ -93,7 +132,7 @@ const BookCard = () => {
         </div>
         <div className="p-6 text-center text-white bg-purple-900 shadow rounded-xl">
           <h3 className="text-lg font-bold">Exam Prep & More</h3>
-          <p>Up to 70% Off</p>
+          <p>Up to 70% Off</p>S
         </div>
       </div>
     </div>

@@ -14,7 +14,6 @@ const Card = () => {
     navigate("/cart");
   };
 
-
   const handleQuickView = (product) => {
     setSelectedProduct(product);
     setShowQuickView(true);
@@ -23,9 +22,8 @@ const Card = () => {
   const productCards = products.map((product) => {
     return (
       <div
-          onClick={() => navigate(`/product/${product.id}`)}
         key={product.id}
-        className="w-48 h-[55%] bg-white p-1 rounded-sm shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+        className="w-48 h-[60%] bg-white p-1 rounded-sm shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
       >
         <div className="relative group">
           <img
@@ -34,11 +32,9 @@ const Card = () => {
             className="w-full h-56 object-cover"
           />
 
-
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all delay-[9000 ] flex items-center justify-center">
-
             <button
-              onMouseEnter={() => handleQuickView(product)} 
+              onClick={() => handleQuickView(product)}
               className="bg-white text-red-600 px-6 py-2 font-bold text-sm border-2 border-red-600 
               opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 
               transition-all duration-300 hover:bg-red-600 hover:text-white"
@@ -47,16 +43,16 @@ const Card = () => {
             </button>
           </div>
         </div>
-
-        <div className="p-3">
-          <h3 className="text-gray-800 font-medium text-sm mb-1 line-clamp-2 leading-tight">
-            {product.name}
-          </h3>
-          <p className="text-green-600 text-xs font-medium mb-2">
-            {product.brand}
-          </p>
-
-          <div className="flex items-center justify-between">
+        <div className="p-2">
+          <div onClick={() => navigate(`/product/${product.id}`)}>
+            <h3 className="text-gray-800 font-medium text-sm mb-1 line-clamp-2 leading-tight">
+              {product.name}
+            </h3>
+            <p className="text-green-600 text-xs font-medium mb-2">
+              {product.brand}
+            </p>
+          </div>
+          <div className="flex items-center justify-between ">
             <span className="text-red-600 text-lg font-bold">
               ${product.price}
             </span>
@@ -66,7 +62,6 @@ const Card = () => {
             >
               Add to Cart
             </button>
-            
           </div>
         </div>
       </div>
@@ -85,15 +80,14 @@ const Card = () => {
         </div>
       )}
 
-
       {showQuickView && selectedProduct && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-6"
-          onClick={() => setShowQuickView(false)} 
+          onClick={() => setShowQuickView(false)}
         >
           <div
             className="max-w-2xl w-full bg-white rounded-xl shadow-lg relative overflow-hidden"
-            onClick={(e) => e.stopPropagation()} 
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setShowQuickView(false)}
@@ -118,11 +112,11 @@ const Card = () => {
                 </h1>
 
                 <p className="text-gray-600">
-                  <strong>Brand: </strong> {selectedProduct.brand}
+                 {selectedProduct.brand}
                 </p>
 
                 <p className="text-gray-600">
-                  <strong>Description: </strong> {selectedProduct.description}
+                 {selectedProduct.description}
                 </p>
 
                 <p className="text-red-600 text-3xl font-bold">

@@ -18,14 +18,14 @@ const CreateProduct = () => {
 
   const watchCategory = watch("category");
 
-  const CreateHanlder = useCallback(
+  const CreateHanlder =useCallback(
     async (data) => {
       setLoading(true);
       try {
         const result = await dispatch(AddProduct(data));
         if (result && result.success) {
           reset();
-          navigate("/admin/products");
+          navigate("/BookProduct");
         }
       } catch (error) {
         console.error("Error creating product:", error);
@@ -46,6 +46,12 @@ const CreateProduct = () => {
     { value: "organization-filing", label: "Organization & Filing" },
     { value: "ruler-scale", label: "Ruler / Scale" },
     { value: "other-items", label: "Other Useful Items" },
+  ];
+  const booksSubcategories = [
+    { value: "fiction", label: "Fiction" },
+    { value: "non-fiction", label: "Non-Fiction" },
+    { value: "Ncert", label: "NCERT" },
+    { value: "other-books", label: "Other Books" },
   ];
 
   return (
@@ -134,6 +140,25 @@ const CreateProduct = () => {
               </div>
             )}
 
+            {watchCategory === "books" && (
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Subcategory
+                </label>
+                <select
+                  {...register("subcategory")}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select Subcategory</option>
+                  {booksSubcategories.map((sub) => (
+                    <option key={sub.value} value={sub.value}>
+                      {sub.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Price *
@@ -211,7 +236,7 @@ const CreateProduct = () => {
           <button
             type="button"
             className="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50"
-            onClick={() => navigate("/admin/products")}
+            onClick={() => navigate("/")}
             disabled={loading}
           >
             Cancel
@@ -220,7 +245,8 @@ const CreateProduct = () => {
             type="submit"
             disabled={loading}
             className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
+            onClick={() => handleSubmit(CreateHanlder)}
+         >
             {loading ? "Creating..." : "Add Product"}
           </button>
         </div>

@@ -29,7 +29,7 @@ const Home = () => {
       </nav>
 
       <nav>
-        <div className="flex items-start justify-start w-full h-full py-5 overflow-x-scroll scrollbar-hide flex-nowrap bg-zinc-100  ">
+        <div className="flex items-center justify-center w-full h-full py-5 ">
           <Homecard1 />
         </div>
       </nav>
