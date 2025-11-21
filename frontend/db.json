@@ -91,15 +91,48 @@
       "subcategory": "Ncert"
     },
     {
-      "id": "1763707064075",
-      "name": "",
-      "brand": "",
-      "category": "books",
-      "price": 0,
+      "id": "1763716711011",
+      "name": "pen",
+      "brand": "flair",
+      "category": "stationery",
+      "price": 123,
+      "stock": 2,
+      "description": "Flair Write More Kit",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRPYy5X8cC2ku-TLC6Zr-8InJc3q4lCEOB47Q0LRkUWCXEDtGrJsMsdjlb2SzYJ6n6rldiSEZOb7dfFASSdAo4J0ZZif9cZ5ADg4vhXIRrf4tHLLxrXeOVU",
+      "subcategory": "writing-tools"
+    },
+    {
+      "id": "1763717992793",
+      "name": "Plastic Ruler",
+      "brand": "Plastic Ruler",
+      "category": "stationery",
+      "price": 23,
+      "stock": 1,
+      "description": "Generic: Plastic Ruler Scale 6in/15cm / Pack of 10",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTVXQuWOXvdVA1hlaRplgOH_tl-NRyDAKUu03ooDGEDg_D2EWD4zzzuTLwGN7Too-sQOv1gjLwN2upCo19lwciCq4YjBLFR_xdQcsdM8VA4ytRs56cwab2MnA",
+      "subcategory": "ruler-scale"
+    },
+    {
+      "id": "1763718045577",
+      "name": "File",
+      "brand": "nothing",
+      "category": "stationery",
+      "price": 50,
       "stock": 0,
-      "description": "",
-      "image": null,
-      "subcategory": "other-books"
+      "description": "Stick File (A4 Size,5's Pack)",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSfoOnQnbMMMuYKgSuPff7d7MZomfiyQq82215ftHfXPdw2cpeB5igy3n8PIAF0tlLu5diGFZXzODoAhDzqmhkr8gpx4WB7AkDQpzjeKLdIrtdPbi0ORrbF",
+      "subcategory": "organization-filing"
+    },
+    {
+      "id": "1763718134007",
+      "name": "Notebooks",
+      "brand": "Amazon ",
+      "category": "stationery",
+      "price": 43,
+      "stock": 2,
+      "description": "Amazon Brand - Solimo Notebooks, Spiral-Bound, Lightweight, Vibrant Colours (A5,",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRO35mOl8CuyWzDdFuAiHzOZ3puaUeixluiEgvlfIA_z8qHZkZR7X1kTbz47kuABWYB51fkhWiD4n-w-u8fZSrtW1OXjzBJjn6I04N1XFzJ2lEDZKofKjzKpQ",
+      "subcategory": "paper-notebooks"
     }
   ],
   "carts": []

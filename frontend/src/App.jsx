@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Currentuser } from "./store/action/UserAction";
 import { ReadProduct } from "./store/action/ProductAction";
+import StationeryProduct from "./pages/product/StationeryProduct";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,9 @@ const App = () => {
 
   return (
     <div className="w-screen h-screen overflow-x-hidden bg-white text-navy-300">
+
       <NavBar />
+      <StationeryProduct/>
       <MainRoutes />
       <Footer />
     </div>

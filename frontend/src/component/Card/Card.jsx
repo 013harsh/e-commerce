@@ -23,7 +23,7 @@ const Card = () => {
     return (
       <div
         key={product.id}
-        className="w-48 h-[60%] bg-white p-1 rounded-sm shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+        className="w-48 h-[40%] bg-white p-1 rounded-sm shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
       >
         <div className="relative group">
           <img

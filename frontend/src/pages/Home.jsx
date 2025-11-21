@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="block ">
       <nav className="w-full h-full p-3 ">
-        <StationeryProduct />
+        {/* <StationeryProduct /> */}
       </nav>
       <nav className="flex ">
         <div className="w-full h-[350px] flex justify-center items-center px-3 relative">

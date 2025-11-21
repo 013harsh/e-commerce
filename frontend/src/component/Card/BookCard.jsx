@@ -5,7 +5,7 @@ const BookCard = () => {
   const navigate = useNavigate();
   const products = useSelector((state) => state.product.products);
 
-  // If you want to show specific book subcategories
+
   const getBooksBySubcategory = (subcategory) => {
     if (!products || products.length === 0) return [];
     return products
