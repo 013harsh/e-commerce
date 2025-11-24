@@ -1,4 +1,3 @@
-import React from "react";
 import BookCard from "../component/Card/BookCard";
 import Homecard1 from "../component/Card/Homecard1";
 import StationeryProduct from "./product/StationeryProduct";
@@ -6,36 +5,35 @@ import StationeryProduct from "./product/StationeryProduct";
 const Home = () => {
   return (
     <div className="block ">
-      <nav className="w-full h-full p-3 ">
-        {/* <StationeryProduct /> */}
-      </nav>
-      <nav className="flex ">
-        <div className="w-full h-[350px] flex justify-center items-center px-3 relative">
+      <section className="">
+        <StationeryProduct />
+      </section>
+      <section className="flex">
+        <div className="w-full h-64 sm:h-80 lg:h-96 flex justify-center items-center px-4 sm:px-6 lg:px-8 relative">
           <img
-            className="h-[300px] w-full rounded-[5px] "
+            className="h-full w-full rounded-lg object-cover"
             src="https://mikirei.com/uploads/3ff9d441e62ae52d1800682cbf11d89a850824c1.jpg"
-            alt=""
+            alt="Hero banner"
           />
-          <div className="relative"></div>
-          <div className="absolute  w-full h-[80px] top-[80px] left-[40px]">
-            <h1 className=" text-4xl italic font-bold text-black w-[20%]">
+          <div className="absolute inset-0 flex flex-col justify-center items-start px-6 sm:px-12 lg:px-16">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl italic font-bold text-black max-w-xs sm:max-w-sm lg:max-w-md">
               Your story{" "}
             </h1>
-            <h1 className="text-4xl italic  font-bold text-black text-end w-[20%]">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl italic font-bold text-black max-w-xs sm:max-w-sm lg:max-w-md text-right">
               starts here
             </h1>
           </div>
         </div>
-      </nav>
+      </section>
 
-      <nav>
-        <div className="flex items-center justify-center w-full h-full py-5 ">
+      <section>
+        <div className=" p-4 sm:p-6 lg:p-8 ">
           <Homecard1 />
         </div>
-      </nav>
-      <nav className=" flex w-full  p-3 bg-zinc-100">
+      </section>
+      <section className=" p-4 sm:p-6 lg:p-8 ">
         <BookCard />
-      </nav>
+      </section>
     </div>
   );
 };

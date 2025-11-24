@@ -1,11 +1,9 @@
-import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import CreateProduct from "../pages/admin/CreateProduct";
 
 const NavBar = () => {
   const navigate = useNavigate();
   return (
-    <nav className="grid items-center w-screen grid-cols-3 px-10 py-5 text-sm font-bold text-white bg-black">
+    <nav className="grid items-center w-full grid-cols-1 sm:grid-cols-3 gap-4 px-4 sm:px-6 lg:px-10 py-4 sm:py-5 text-sm font-bold text-white bg-black">
       <div className="flex justify-start">
         <NavLink
           to="/"
@@ -20,13 +18,13 @@ const NavBar = () => {
         </NavLink>
       </div>
 
-      <div className="flex items-center justify-start gap-2 bg-gray-500 w-[240px] rounded-[15px]">
+      <div className="flex items-center justify-start gap-2 bg-gray-500 w-full max-w-xs sm:max-w-sm lg:max-w-md rounded-2xl">
         <input
           type="text"
           placeholder="Search"
-          className="w-[200px] px-3 h-[25px] rounded-[15px]  text-black outline-none"
-        ></input>
-        <i class="fa-solid fa-magnifying-glass"></i>
+          className="w-full px-3 h-10 sm:h-12 rounded-2xl text-black outline-none"
+        />
+        <i className="fa-solid fa-magnifying-glass"></i>
       </div>
 
       <div className="flex justify-end gap-x-6">
@@ -34,18 +32,18 @@ const NavBar = () => {
           to="/cart"
           className="font-semibold transition-colors hover:text-red-700 hover:underline underline-offset-4"
         >
-          <i class="fa-solid fa-cart-shopping"></i>Cart
+          <i className="fa-solid fa-cart-shopping"></i>Cart
         </NavLink>
-        
+
         <div className="relative">
           <div className="inline-block group">
             <div
               className="transition-colors cursor-pointer hover:text-red-700 "
               onClick={() => navigate("/account")}
             >
-              <i class="fa-solid fa-user"></i> Account
+              <i className="fa-solid fa-user"></i> Account
             </div>
-               <div className="absolute right-0 z-50 invisible mt-2 transition-all duration-300 group-hover:opacity-100 group-hover:visible">
+            <div className="absolute right-0 z-50 invisible mt-2 transition-all duration-300 group-hover:opacity-100 group-hover:visible">
               <div className="absolute w-4 h-4 rotate-45 bg-black shadow -top-2 right-10" />
               <div className="overflow-hidden bg-white border border-gray-200 shadow-lg w-80 rounded-2xl">
                 <div className="p-4">
@@ -66,7 +64,7 @@ const NavBar = () => {
                   </div>
                 </div>
                 <hr className="border-gray-200" />
-                {/* Menu list */}
+
                 <nav className="px-4 py-2">
                   <ul className="space-y-1">
                     <li>
@@ -103,7 +101,6 @@ const NavBar = () => {
                     </li>
                     <li>
                       <NavLink
-                      onClick={() => navigate("/CreateProduct")}
                         to="/createproduct"
                         className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
                       >
@@ -112,18 +109,16 @@ const NavBar = () => {
                     </li>
                     <li>
                       <NavLink
-                        to="/youraddress"
+                        to="/"
                         className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
-                        onClick = {() => navigate("/")}
                       >
                         Your Addresses
                       </NavLink>
                     </li>
                     <li>
                       <NavLink
-                        to="/editprofile"
+                        to="/EditProfile"
                         className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
-                        onClick = {() => navigate("/EditProfile")}
                       >
                         Change Password
                       </NavLink>

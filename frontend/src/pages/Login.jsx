@@ -18,14 +18,14 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-80px)] bg-gray-500 px-4 relative">
+    <div className="flex items-center justify-center min-h-screen pt-20 bg-gray-500 px-4 relative">
       <img
         className="absolute top-0 left-0 object-cover w-full h-full"
         src="https://images.unsplash.com/photo-1722182877533-7378b60bf1e8?q=80&w=1614&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
       />
 
-      <div className="z-10 w-full max-w-md p-6 bg-white rounded-lg shadow">
+      <div className="z-10 w-full max-w-sm sm:max-w-md p-6 bg-white rounded-lg shadow">
         <h1 className="mb-1 text-2xl font-bold text-zinc-900">Welcome back</h1>
         <p className="mb-6 text-sm text-gray-900">
           Sign in to continue to your account

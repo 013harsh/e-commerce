@@ -47,7 +47,7 @@ const StationeryProduct = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-5 w-full h-full p-3  ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  sm:p-6 lg:p-8">
         {categories.map((category) => (
           <div
             key={category.id}

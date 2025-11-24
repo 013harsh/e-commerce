@@ -5,21 +5,20 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Currentuser } from "./store/action/UserAction";
 import { ReadProduct } from "./store/action/ProductAction";
-import StationeryProduct from "./pages/product/StationeryProduct";
+import ScrollToTop from "./component/ScrollToTop";
 
 const App = () => {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(Currentuser());
     dispatch(ReadProduct());
-  },[]);
+  }, [dispatch]);
 
   return (
-    <div className="w-screen h-screen overflow-x-hidden bg-white text-navy-300">
-
+    <div className="w-full min-h-screen  overflow-x-hidden  bg-white">
+      <ScrollToTop />
       <NavBar />
-      <StationeryProduct/>
       <MainRoutes />
       <Footer />
     </div>

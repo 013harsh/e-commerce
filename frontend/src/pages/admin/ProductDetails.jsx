@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Homecard1 from "../../component/Card/Homecard1";
 
-
 const ProductDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -15,7 +14,7 @@ const ProductDetails = () => {
   if (!product) return <h2>Product not found</h2>;
 
   return (
-    <div className="bg-gray-100">
+    <div>
       <div className="max-w-full  mx-auto h-full p-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="relative w-[50%] h-[350px]">
@@ -59,12 +58,11 @@ const ProductDetails = () => {
               </button>
             </div>
           </div>
-          <div className="mt-[400px]">
-            <Homecard1/>
-            </div>
         </div>
       </div>
-
+      <div className="p-4 sm:p-6 lg:p-8">
+        <Homecard1 />
+      </div>
     </div>
   );
 };

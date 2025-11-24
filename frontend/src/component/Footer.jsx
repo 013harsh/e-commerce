@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <div className="bottom-0 left-0 flex flex-col items-center justify-center w-full h-[50%] text-white bg-black">
-      <div className="top-0 left-0 flex flex-row justify-end w-full h-full gap-10 py-[50px] px-[150px]  ">
+    <div className="w-full min-h-64 text-white bg-black">
+      <div className="flex flex-col sm:flex-row justify-center sm:justify-end w-full gap-4 sm:gap-6 lg:gap-10 py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-16 xl:px-24">
         <div className="flex flex-col gap-5">
           <p className="font-bold">Get to Know Us</p>
           <ul>

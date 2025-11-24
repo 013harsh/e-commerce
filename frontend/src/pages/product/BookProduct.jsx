@@ -8,8 +8,6 @@ const BookProduct = () => {
   return (
     <div className="relative flex gap-5 w-full h-full bg-gray-100 p-[3%] border-2  border-red-900 ">
       <Card />
-
-      
     </div>
   );
 };
