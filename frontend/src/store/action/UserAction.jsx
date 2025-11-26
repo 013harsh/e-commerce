@@ -1,6 +1,7 @@
 import axios from "../../api/axiosconfig";
 import { loaduser, remover } from "../reducer/UserSlice";
 
+
 export const RegisterUser = (user) => async (dispatch, getstate) => {
   try {
     const { data: existinguser } = await axios.get(
