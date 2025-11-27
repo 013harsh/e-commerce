@@ -166,18 +166,44 @@
       "description": "Natasha, Riya, Anjali and Katherine were best friends in college - each different from the other yet inseparable - until that night. It was the night that began with a bottle of whisky and a game of Ouija but ended with the death of Sania, their unlikeable hostel mate. The friends vowed never to discuss that fateful night, a pact that had kept their friendship and guilt dormant for the last twenty years. But now, someone has begun to mess with them, threatening to reveal the truth that only Sania knew. Is it a hacker playing on their guilt or has Sania's ghost really returned to avenge her death? As the faceless enemy closes in on them, the friends come together once again to recount what really happened that night. But when the story is retold by each of them, the pieces don't fit. Because none of them is telling the whole truth.",
       "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRoUVi5jh103ciEP9ehsnwz4xxxsU3gSJw7evLdjs1N-sWIL62vKrne83cjP2tJUtSRCNYSZO02IGMSzvRdio02l43LiRTCivhe8HoEzmjHejjJhcvITN2DCQ",
       "subcategory": "other-books"
-    },
-    {
-      "id": "1764245969099",
-      "name": "",
-      "brand": "",
-      "category": "books",
-      "price": 0,
-      "stock": 0,
-      "description": "",
-      "image": null,
-      "subcategory": "fiction"
     }
   ],
-  "carts": []
+  "cart": [
+    {
+      "id": "1763706941343",
+      "name": "Chemistry ",
+      "brand": "NCERT",
+      "category": "books",
+      "price": 111,
+      "stock": 1,
+      "description": "NCERT Class 11th (PCM) Set Of 5 Books Physics Part 1 & 2 Chemistry Part 1 & 2 And Mathematics NCERT",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTfOPwZIE3gnUYTpVfJDaKianmKEg0h-9nc_Dl3hKwAUzWZg4Y1BDERLRCCxFrrLY3rfJK7i0L63UHIRzt03ghdqOZJNtWEyelL_T7oh5rr",
+      "subcategory": "Ncert",
+      "quantity": 1
+    },
+    {
+      "id": "1763706941343",
+      "name": "Chemistry ",
+      "brand": "NCERT",
+      "category": "books",
+      "price": 111,
+      "stock": 1,
+      "description": "NCERT Class 11th (PCM) Set Of 5 Books Physics Part 1 & 2 Chemistry Part 1 & 2 And Mathematics NCERT",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTfOPwZIE3gnUYTpVfJDaKianmKEg0h-9nc_Dl3hKwAUzWZg4Y1BDERLRCCxFrrLY3rfJK7i0L63UHIRzt03ghdqOZJNtWEyelL_T7oh5rr",
+      "subcategory": "Ncert",
+      "quantity": 1
+    },
+    {
+      "id": "1763706941343",
+      "name": "Chemistry ",
+      "brand": "NCERT",
+      "category": "books",
+      "price": 111,
+      "stock": 1,
+      "description": "NCERT Class 11th (PCM) Set Of 5 Books Physics Part 1 & 2 Chemistry Part 1 & 2 And Mathematics NCERT",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTfOPwZIE3gnUYTpVfJDaKianmKEg0h-9nc_Dl3hKwAUzWZg4Y1BDERLRCCxFrrLY3rfJK7i0L63UHIRzt03ghdqOZJNtWEyelL_T7oh5rr",
+      "subcategory": "Ncert",
+      "quantity": 1
+    }
+  ]
 }
