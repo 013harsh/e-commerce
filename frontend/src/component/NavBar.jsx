@@ -10,7 +10,7 @@ const NavBar = () => {
           className="italic transition-colors hover:text-red-700 underline-offset-4"
         >
           <span className="text-2xl font-bold text-blue-300 underline"> H</span>{" "}
-          🅰️ ®️ <i class="fa-solid fa-s"></i>{" "}
+          🅰️ ®️ <i className="fa-solid fa-s"></i>{" "}
           <span className="text-2xl font-bold text-blue-300 underline ">
             {" "}
             H
@@ -83,14 +83,7 @@ const NavBar = () => {
                         Personal Settings
                       </NavLink>
                     </li>
-                    <li>
-                      <NavLink
-                        to="/orders"
-                        className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
-                      >
-                        Your Orders
-                      </NavLink>
-                    </li>
+                  
                     <li>
                       <NavLink
                         to="/wishlist"
@@ -99,12 +92,39 @@ const NavBar = () => {
                         Your Wishlist
                       </NavLink>
                     </li>
+                  </ul>
+                </nav>
+
+                <hr className="border-gray-200" />
+                
+                {/* Admin Section */}
+                <nav className="px-4 py-2">
+                  <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    Admin Panel
+                  </div>
+                  <ul className="space-y-1">
                     <li>
                       <NavLink
                         to="/createproduct"
                         className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
                       >
-                        AddProduct
+                        <i className="fa-solid fa-plus mr-2"></i>Add Product
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/updateproduct"
+                        className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
+                      >
+                        <i className="fa-solid fa-edit mr-2"></i>Update Product
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/manageproducts"
+                        className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
+                      >
+                        <i className="fa-solid fa-list mr-2"></i>Manage Products
                       </NavLink>
                     </li>
                     <li>
@@ -115,12 +135,20 @@ const NavBar = () => {
                         Your Addresses
                       </NavLink>
                     </li>
+                      <li>
+                      <NavLink
+                        to="/BookProduct"
+                        className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
+                      >
+                       Store
+                      </NavLink>
+                    </li>
                     <li>
                       <NavLink
                         to="/EditProfile"
                         className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
                       >
-                        Change Password
+                        <i className="fa-solid fa-key mr-2"></i>Change Password
                       </NavLink>
                     </li>
                   </ul>
