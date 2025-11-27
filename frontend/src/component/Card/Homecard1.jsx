@@ -1,16 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { asyncaddtoCart } from "../../store/action/CartAction";
 
 const Homecard1 = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
 
   const [showQuickView, setShowQuickView] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleAddToCart = (product) => {
-    console.log("Adding to cart:", product);
+    dispatch(asyncaddtoCart(product));
+    console.log("Adding to cart:");
     navigate("/cart");
   };
 
@@ -41,33 +45,31 @@ const Homecard1 = () => {
   const displayProducts = getNewArrivals();
 
   if (displayProducts.length === 0) {
-    return <div className="text-center py-8">No new arrivals available</div>;
+    return <div className="py-8 text-center">No new arrivals available</div>;
   }
 
   return (
     <div className="w-full">
       <div>
-        <h1 className="mb-5 text-3xl font-bold px-8">New Arrivals</h1>
+        <h1 className="px-8 mb-5 text-3xl font-bold">New Arrivals</h1>
       </div>
-      <div className="flex items-center justify-start bg-slate-100  rounded-lg p-4 overflow-x-auto scrollbar-hide w-full px-4 sm:px-6 lg:px-8 space-x-2 sm:space-x-4 lg:space-x-6">
+      <div className="flex items-center justify-start w-full p-4 px-4 space-x-2 overflow-x-auto rounded-lg bg-slate-100 scrollbar-hide sm:px-6 lg:px-8 sm:space-x-4 lg:space-x-6">
         {displayProducts.map((product) => (
           <div
             key={product.id}
-            className="w-32 sm:w-36 lg:w-40 flex-shrink-0"
+            className="flex-shrink-0 w-32 sm:w-36 lg:w-40"
           >
-            <div className="relative group w-full h-40 sm:h-44 lg:h-48 bg-gray-200 shadow-sm hover:shadow-xl overflow-hidden flex items-center justify-center rounded-lg">
+            <div className="relative flex items-center justify-center w-full h-40 overflow-hidden bg-gray-200 rounded-lg shadow-sm group sm:h-44 lg:h-48 hover:shadow-xl">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover cursor-pointer"
+                className="object-cover w-full h-full cursor-pointer"
                 onClick={() => navigate(`/product/${product.id}`)}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center transition-all bg-black bg-opacity-0 group-hover:bg-opacity-30">
                 <button
                   onClick={() => handleQuickView(product)}
-                  className="bg-white text-red-600 px-4 py-2 font-bold text-xs border-2 border-red-600 
-                  opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 
-                  transition-all duration-300 hover:bg-red-600 hover:text-white rounded"
+                  className="px-4 py-2 text-xs font-bold text-red-600 transition-all duration-300 transform translate-y-4 bg-white border-2 border-red-600 rounded opacity-0 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-red-600 hover:text-white"
                 >
                   QUICK VIEW
                 </button>
@@ -75,13 +77,13 @@ const Homecard1 = () => {
             </div>
             <div className="mt-3">
               <h3 
-                className="font-semibold text-xs sm:text-sm line-clamp-2 cursor-pointer hover:text-blue-600 transition-colors"
+                className="text-xs font-semibold transition-colors cursor-pointer sm:text-sm line-clamp-2 hover:text-blue-600"
                 onClick={() => navigate(`/product/${product.id}`)}
               >
                 {product.name}
               </h3>
-              <p className="text-gray-600 text-xs">{product.brand}</p>
-              <p className="text-green-600 font-bold text-sm">
+              <p className="text-xs text-gray-600">{product.brand}</p>
+              <p className="text-sm font-bold text-green-600">
                 ${product.price}
               </p>
             </div>
@@ -91,27 +93,26 @@ const Homecard1 = () => {
 
       {showQuickView && selectedProduct && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-6"
+          className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black bg-opacity-50"
           onClick={() => setShowQuickView(false)}
         >
           <div
-            className="max-w-2xl w-full bg-white rounded-xl shadow-lg relative overflow-hidden"
+            className="relative w-full max-w-2xl overflow-hidden bg-white shadow-lg rounded-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setShowQuickView(false)}
-              className="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 
-              rounded-full flex items-center justify-center transition"
+              className="absolute flex items-center justify-center w-8 h-8 transition bg-gray-100 rounded-full top-4 right-4 hover:bg-gray-200"
             >
               ✕
             </button>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 p-3 gap-9">
+            <div className="grid grid-cols-1 p-3 lg:grid-cols-2 gap-9">
               <div>
                 <img
                   src={selectedProduct.image}
                   alt={selectedProduct.name}
-                  className="w-full h-full object-contain rounded-lg"
+                  className="object-contain w-full h-full rounded-lg"
                 />
               </div>
 
@@ -124,17 +125,17 @@ const Homecard1 = () => {
                  {selectedProduct.brand}
                 </p>
 
-                <p className="text-gray-600 line-clamp-3 text-sm leading-relaxed">
+                <p className="text-sm leading-relaxed text-gray-600 line-clamp-3">
                  {selectedProduct.description}
                 </p>
 
-                <p className="text-red-600 text-3xl font-bold">
+                <p className="text-3xl font-bold text-red-600">
                   ₹{selectedProduct.price}
                 </p>
 
                 <div className="flex flex-col gap-3">
                   <button
-                    className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    className="w-full py-3 font-semibold text-white transition-colors bg-blue-600 rounded-lg hover:bg-blue-700"
                     onClick={() => {
                       setShowQuickView(false);
                       navigate(`/product/${selectedProduct.id}`);
@@ -145,13 +146,13 @@ const Homecard1 = () => {
                   
                   <div className="flex gap-4">
                     <button
-                      className="flex-1 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700"
+                      className="flex-1 py-3 font-semibold text-white bg-red-600 rounded-lg hover:bg-red-700"
                       onClick={() => handleAddToCart(selectedProduct)}
                     >
                       Add To Cart
                     </button>
 
-                    <button className="flex-1 py-3 border border-red-600 text-red-600 rounded-lg font-semibold hover:bg-red-50">
+                    <button className="flex-1 py-3 font-semibold text-red-600 border border-red-600 rounded-lg hover:bg-red-50">
                       Add To Wishlist
                     </button>
                   </div>

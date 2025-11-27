@@ -182,26 +182,14 @@
       "quantity": 1
     },
     {
-      "id": "1763706941343",
-      "name": "Chemistry ",
-      "brand": "NCERT",
+      "id": "1763707009444",
+      "name": "MATHEMATICS",
+      "brand": "NCERT ",
       "category": "books",
-      "price": 111,
+      "price": 122,
       "stock": 1,
-      "description": "NCERT Class 11th (PCM) Set Of 5 Books Physics Part 1 & 2 Chemistry Part 1 & 2 And Mathematics NCERT",
-      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTfOPwZIE3gnUYTpVfJDaKianmKEg0h-9nc_Dl3hKwAUzWZg4Y1BDERLRCCxFrrLY3rfJK7i0L63UHIRzt03ghdqOZJNtWEyelL_T7oh5rr",
-      "subcategory": "Ncert",
-      "quantity": 1
-    },
-    {
-      "id": "1763706941343",
-      "name": "Chemistry ",
-      "brand": "NCERT",
-      "category": "books",
-      "price": 111,
-      "stock": 1,
-      "description": "NCERT Class 11th (PCM) Set Of 5 Books Physics Part 1 & 2 Chemistry Part 1 & 2 And Mathematics NCERT",
-      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTfOPwZIE3gnUYTpVfJDaKianmKEg0h-9nc_Dl3hKwAUzWZg4Y1BDERLRCCxFrrLY3rfJK7i0L63UHIRzt03ghdqOZJNtWEyelL_T7oh5rr",
+      "description": "NCERT MATHEMATICS TEXTBOOK FOR CLASS 10",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRqXdnbe_2zahKzgCP2rsFOV3KDZ5f9BLf53UBnUvgNq9joTDhIlwOhzpnq1fIgMBzKC-1IOGZo6q2H6KoHYr-5fhsqTDY-0Olw-FgGRaE",
       "subcategory": "Ncert",
       "quantity": 1
     }
