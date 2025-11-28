@@ -11,7 +11,7 @@ const Card = () => {
 
   const handleAddToCart = (product) => {
     console.log("Adding to cart:", product);
-    navigate("/cart");
+
   };
 
   const handleQuickView = (product) => {
@@ -29,15 +29,13 @@ const Card = () => {
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-56 object-cover"
+            className="object-cover w-full h-56"
           />
 
-          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all delay-[9000 ] flex items-center justify-center">
+          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all delay-[900ms] flex items-center justify-center">
             <button
               onClick={() => handleQuickView(product)}
-              className="bg-white text-red-600 px-6 py-2 font-bold text-sm border-2 border-red-600 
-              opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 
-              transition-all duration-300 hover:bg-red-600 hover:text-white"
+              className="px-6 py-2 text-sm font-bold text-red-600 transition-all duration-300 transform translate-y-4 bg-white border-2 border-red-600 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-red-600 hover:text-white"
             >
               QUICK VIEW
             </button>
@@ -45,20 +43,20 @@ const Card = () => {
         </div>
         <div className="p-2">
           <div onClick={() => navigate(`/product/${product.id}`)}>
-            <h3 className="text-gray-800 font-medium text-sm mb-1 line-clamp-2 leading-tight">
+            <h3 className="mb-1 text-sm font-medium leading-tight text-gray-800 line-clamp-2">
               {product.name}
             </h3>
-            <p className="text-green-600 text-xs font-medium mb-2">
+            <p className="mb-2 text-xs font-medium text-green-600">
               {product.brand}
             </p>
           </div>
           <div className="flex items-center justify-between ">
-            <span className="text-red-600 text-lg font-bold">
+            <span className="text-lg font-bold text-red-600">
               ${product.price}
             </span>
             <button
               onClick={() => handleAddToCart(product)}
-              className="bg-blue-600 text-white px-3 py-1 rounded text-xs font-medium hover:bg-blue-700 transition-colors duration-200"
+              className="px-3 py-1 text-xs font-medium text-white transition-colors duration-200 bg-blue-600 rounded hover:bg-blue-700"
             >
               Add to Cart
             </button>
@@ -71,38 +69,37 @@ const Card = () => {
   return (
     <>
       {products.length > 0 ? (
-        <div className="flex flex-wrap gap-4 w-full p-3 overflow-auto">
+        <div className="flex flex-wrap w-full gap-4 p-3 overflow-auto">
           {productCards}
         </div>
       ) : (
         <div className="flex items-center justify-center w-full h-64">
-          <p className="text-gray-500 text-lg">No products available</p>
+          <p className="text-lg text-gray-500">No products available</p>
         </div>
       )}
 
       {showQuickView && selectedProduct && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-6"
+          className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black bg-opacity-50"
           onClick={() => setShowQuickView(false)}
         >
           <div
-            className="max-w-2xl w-full bg-white rounded-xl shadow-lg relative overflow-hidden"
+            className="relative w-full max-w-2xl overflow-hidden bg-white shadow-lg rounded-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setShowQuickView(false)}
-              className="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 
-              rounded-full flex items-center justify-center transition"
+              className="absolute flex items-center justify-center w-8 h-8 transition bg-gray-100 rounded-full top-4 right-4 hover:bg-gray-200"
             >
               ✕
             </button>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 p-3 gap-9">
+            <div className="grid grid-cols-1 p-3 lg:grid-cols-2 gap-9">
               <div>
                 <img
                   src={selectedProduct.image}
                   alt={selectedProduct.name}
-                  className="w-full h-full object-contain rounded-lg"
+                  className="object-contain w-full h-full rounded-lg"
                 />
               </div>
 
@@ -119,7 +116,7 @@ const Card = () => {
                  {selectedProduct.description}
                 </p>
 
-                <p className="text-red-600 text-3xl font-bold">
+                <p className="text-3xl font-bold text-red-600">
                   ₹{selectedProduct.price}
                 </p>
 

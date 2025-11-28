@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { Currentuser } from "./store/action/UserAction";
 import { ReadProduct } from "./store/action/ProductAction";
 import ScrollToTop from "./component/ScrollToTop";
+import { asyncloadCart } from "./store/action/CartAction";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -13,10 +14,11 @@ const App = () => {
   useEffect(() => {
     dispatch(Currentuser());
     dispatch(ReadProduct());
+    dispatch(asyncloadCart());
   }, [dispatch]);
 
   return (
-    <div className="w-full min-h-screen  overflow-x-hidden  bg-white">
+    <div className="w-full min-h-screen overflow-x-hidden bg-white">
       <ScrollToTop />
       <NavBar />
       <MainRoutes />

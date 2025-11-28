@@ -19,54 +19,49 @@ export const asyncloadCart = () => async (dispatch, getstate) => {
 export const asyncaddtoCart = (product) => async (dispatch, getstate) => {
   try {
     const { data } = await axios.post("/cart", {
-      id: product._id, 
-      ...product, 
-      quantity: 1,
+      id: product.id, 
+      ...product
     });
 
     dispatch(addtoCart(product));
-    localStorage.setItem("cart", JSON.stringify(getstate().Cart));
+    localStorage.setItem("cart", JSON.stringify(getstate().Cart.Cart));
     console.log(getstate().Cart.Cart);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const asyncremoveFromCart =
-  (productId) => async (dispatch, getstate) => {
+export const asyncremoveFromCart =(id) => async (dispatch, getstate) => {
     try {
-      const { data } = await axios.delete(`/cart/${productId}`);
-      dispatch(removeFromCart(productId));
-
-      localStorage.setItem("cart", JSON.stringify(getstate().Cart));
+      const { data } = await axios.delete(`/cart/${id}`);
+      dispatch(removeFromCart(id));
+      localStorage.setItem("cart", JSON.stringify(getstate().Cart.Cart));
       console.log(getstate().Cart.Cart);
     } catch (error) {
       console.log(error);
     }
   };
 
-export const asyncincreasequantity =
-  (productId) => async (dispatch, getstate) => {
+export const asyncincreasequantity =(id) => async (dispatch, getstate) => {
     try {
-      const { data } = await axios.patch(`/cart/${productId}`, {
+      const { data } = await axios.patch(`/cart/${id}`, {
         action: "increase",
       });
-      dispatch(increasequantity(productId));
-      localStorage.setItem("cart", JSON.stringify(getstate().Cart));
+      dispatch(increasequantity(id));
+      localStorage.setItem("cart", JSON.stringify(getstate().Cart.Cart));
       console.log(getstate().Cart.Cart);
     } catch (error) {
       console.log(error);
     }
   };
 
-export const asyncdecreasequantity =
-  (productId) => async (dispatch, getstate) => {
+export const asyncdecreasequantity =(id) => async (dispatch, getstate) => {
     try {
-      const { data } = await axios.patch(`/cart/${productId}`, {
+      const { data } = await axios.patch(`/cart/${id}`, {
         action: "decrease",
       });
-      dispatch(decreasequantity(productId));
-      localStorage.setItem("cart", JSON.stringify(getstate().Cart));
+      dispatch(decreasequantity(id));
+      localStorage.setItem("cart", JSON.stringify(getstate().Cart.Cart));
       console.log(getstate().Cart.Cart);
     } catch (error) {
       console.log(error);
