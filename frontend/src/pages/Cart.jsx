@@ -16,8 +16,8 @@ const Cart = () => {
   const updateQuantity = (id, newQty) => {
     const item = cartItems.find((i) => (i.id) === id);
     if (!item) return;
-    if (newQty > item.quantity) return dispatch(asyncincreasequantity(id));
-    if (newQty < item.quantity) return dispatch(asyncdecreasequantity(id));
+    if (newQty > item.quantity) return dispatch(asyncincreasequantity(String(id)));
+    if (newQty < item.quantity) return dispatch(asyncdecreasequantity(String(id)));
   };
 
 

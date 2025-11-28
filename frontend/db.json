@@ -170,17 +170,16 @@
   ],
   "cart": [
     {
-      "id": "1763736670688",
-      "name": "Viktor E. Frankl And The Search For Meaning",
-      "brand": "",
+      "id": "1763706941343",
+      "name": "Chemistry ",
+      "brand": "NCERT",
       "category": "books",
-      "price": 433,
-      "stock": 0,
-      "description": "The official journalling companion on finding meaning in an unpredictable world, inspired by the enduring wisdom of bestselling author, psychiatrist and Holocaust survivor Viktor Frankl",
-      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS6vOSS0yNqjSPjXEcvIGPHHpCnvPIqvi4MocyGeBCa3TOXRedR2A2xh8J1td59MtvhThB9uAw1g1aNEYsQ_TTlYrOznMvSUiqZcWnOks4Aen871TRnhbpfSA",
-      "subcategory": "non-fiction",
-      "quantity": 1,
-      "action": "decrease"
+      "price": 111,
+      "stock": 1,
+      "description": "NCERT Class 11th (PCM) Set Of 5 Books Physics Part 1 & 2 Chemistry Part 1 & 2 And Mathematics NCERT",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTfOPwZIE3gnUYTpVfJDaKianmKEg0h-9nc_Dl3hKwAUzWZg4Y1BDERLRCCxFrrLY3rfJK7i0L63UHIRzt03ghdqOZJNtWEyelL_T7oh5rr",
+      "subcategory": "Ncert",
+      "quantity": 1
     }
   ]
 }
