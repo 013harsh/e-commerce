@@ -11,7 +11,7 @@ const Register = () => {
 
   const RegisterHandler = (user) => {
     user.id = Date.now();
-    user.isAdim = false;
+    user.isAdmin = false;
     if (user.email === "" || user.password === "" || user.username === "" ) {
       return alert("please fill all the fields");
     }
@@ -21,14 +21,14 @@ const Register = () => {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen pt-20 bg-gray-500 px-4">
+    <div className="relative flex items-center justify-center min-h-screen px-4 pt-20 bg-gray-500">
       <img
         className="absolute top-0 left-0 object-cover w-full h-full"
         src="https://images.unsplash.com/photo-1722182877533-7378b60bf1e8?q=80&w=1614&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
       />
 
-      <div className="z-10 w-full max-w-sm sm:max-w-md p-6 rounded-lg shadow bg-zinc-300">
+      <div className="z-10 w-full max-w-sm p-6 rounded-lg shadow sm:max-w-md bg-zinc-300">
         <h1 className="mb-1 text-3xl font-bold text-zinc-900">
           Create your account
         </h1>
