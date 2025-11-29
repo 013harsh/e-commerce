@@ -53,7 +53,6 @@ const NavBar = () => {
               className="w-20 overflow-hidden transition-colors cursor-pointer nowrap hover:text-red-700 "
               onClick={() => navigate("/account")}
             >
-              {/* {user ? ({user?.email}): ( <i className="fa-solid fa-user"></i> Account)} */}
               {user ? (
                 <span className="">{user?.username}</span>
               ) : (
@@ -65,6 +64,10 @@ const NavBar = () => {
             <div className="absolute right-0 z-50 invisible mt-2 transition-all duration-300 group-hover:opacity-100 group-hover:visible">
               <div className="absolute w-4 h-4 rotate-45 bg-black shadow -top-2 right-10" />
               <div className="overflow-hidden bg-white border border-gray-200 shadow-lg w-80 rounded-2xl">
+
+                 {user? (
+                    <span>{user?.username}</span>
+                  ):(
                 <div className="p-4">
                   <div className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-semibold py-2.5 rounded-lg transition-colors">
                     <div
@@ -81,7 +84,9 @@ const NavBar = () => {
                       <div onClick={() => navigate("/register")}>Register</div>
                     </div>
                   </div>
-                </div>
+
+                </div>)}
+
                 <hr className="border-gray-200" />
 
                 <nav className="px-4 py-2">
