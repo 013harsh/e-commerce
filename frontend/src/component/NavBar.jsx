@@ -25,13 +25,13 @@ const NavBar = () => {
         </NavLink>
       </div>
 
-      <div className="flex items-center justify-start w-full max-w-xs gap-2 bg-gray-500 sm:max-w-sm lg:max-w-md rounded-2xl">
+      <div className="flex items-center justify-start w-full max-w-xs gap-7 bg-gray-500 sm:max-w-sm lg:max-w-md rounded-l">
         <input
           type="text"
           placeholder="Search"
-          className="w-full h-10 px-3 text-black outline-none sm:h-12 rounded-2xl"
+          className="w-full  h-10 px-3 text-black outline-none sm:h-10 rounded-r rounded-l"
         />
-        <i className="fa-solid fa-magnifying-glass"></i>
+        <i className="fa-solid  fa-magnifying-glass"></i>
       </div>
 
       <div className="flex justify-end gap-x-6">
@@ -157,7 +157,7 @@ const NavBar = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>  
     </nav>
   );
 };
