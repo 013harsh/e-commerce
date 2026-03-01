@@ -66,7 +66,7 @@ const Homecard1 = () => {
                 className="object-cover w-full h-full cursor-pointer"
                 onClick={() => navigate(`/product/${product.id}`)}
               />
-              <div className="absolute inset-0 flex items-center justify-center transition-all bg-black bg-opacity-0 group-hover:bg-opacity-30">
+              <div className="absolute inset-0 flex items-center justify-center transition-all bg-black/0 group-hover:bg-black/30">
                 <button
                   onClick={() => handleQuickView(product)}
                   className="px-4 py-2 text-xs font-bold text-red-600 transition-all duration-300 transform translate-y-4 bg-white border-2 border-red-600 rounded opacity-0 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-red-600 hover:text-white"
@@ -93,7 +93,7 @@ const Homecard1 = () => {
 
       {showQuickView && selectedProduct && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black bg-opacity-50"
+          className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/50"
           onClick={() => setShowQuickView(false)}
         >
           <div

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const NavBar = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user?.users);
-  const cartItems = useSelector((state) => state.Cart.Cart);
+  const cartItems = useSelector((state) => state.Cart?.Cart || []);
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   console.log("USER:", user);
@@ -25,13 +25,13 @@ const NavBar = () => {
         </NavLink>
       </div>
 
-      <div className="flex items-center justify-start w-full max-w-xs gap-7 bg-gray-500 sm:max-w-sm lg:max-w-md rounded-l">
+      <div className="flex items-center justify-start w-full max-w-xs bg-gray-100 rounded gap-7 sm:max-w-sm lg:max-w-md">
         <input
           type="text"
           placeholder="Search"
-          className="w-full  h-10 px-3 text-black outline-none sm:h-10 rounded-r rounded-l"
+          className="w-full h-10 px-3 text-black rounded-l rounded-r outline-none sm:h-10"
         />
-        <i className="fa-solid  fa-magnifying-glass"></i>
+        {/* <i className="fa-solid fa-magnifying-glass"></i> */}
       </div>
 
       <div className="flex justify-end gap-x-6">
@@ -100,13 +100,13 @@ const NavBar = () => {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50">
+                      <NavLink to="/settings" className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50">
                         Personal Settings
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50">
+                      <NavLink to="/wishlist" className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50">
                         Your Wishlist
                       </NavLink>
                     </li>

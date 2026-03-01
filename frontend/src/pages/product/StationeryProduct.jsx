@@ -13,7 +13,7 @@ const StationeryProduct = () => {
       id: 1,
       title: "Writing Tools",
       description: "Pens, Pencils, Markers, Highlighters",
-      route: "WritingTools",
+      route: "/WritingTools",
     },
     {
       id: 2,
@@ -47,18 +47,17 @@ const StationeryProduct = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  sm:p-6 lg:p-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 sm:p-6 lg:p-8">
         {categories.map((category) => (
           <div
             key={category.id}
             onClick={() => handleCategoryClick(category.route)}
-            className="p-2  border-r-2 border-l-2 rounded-sm border-red-500 cursor-pointer bg-gray-200 transition-all duration-300 text-center shadow-sm
-                      hover:bg-white hover:shadow-md"
+            className="p-2 text-center transition-all duration-300 bg-gray-200 border-l-2 border-r-2 border-red-500 rounded-sm shadow-sm cursor-pointer hover:bg-white hover:shadow-md"
           >
-            <h3 className="text-lg font-bold mb-2 text-black">
+            <h3 className="mb-2 text-lg font-bold text-black">
               {category.title}
             </h3>
-            <p className="text text-gray-600 m-0">{category.description}</p>
+            <p className="m-0 text-gray-600 text">{category.description}</p>
           </div>
         ))}
       </div>
