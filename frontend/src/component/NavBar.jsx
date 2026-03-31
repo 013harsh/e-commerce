@@ -64,28 +64,29 @@ const NavBar = () => {
             <div className="absolute right-0 z-50 invisible mt-2 transition-all duration-300 group-hover:opacity-100 group-hover:visible">
               <div className="absolute w-4 h-4 rotate-45 bg-black shadow -top-2 right-10" />
               <div className="overflow-hidden bg-white border border-gray-200 shadow-lg w-80 rounded-2xl">
+                {user ? (
+                  <span>{user?.username}</span>
+                ) : (
+                  <div className="p-4">
+                    <div className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-semibold py-2.5 rounded-lg transition-colors">
+                      <div
+                        onClick={() => navigate("/login")}
+                        className="text-white no-underline cursor-pointer"
+                      >
+                        Login
+                      </div>
+                    </div>
 
-                 {user? (
-                    <span>{user?.username}</span>
-                  ):(
-                <div className="p-4">
-                  <div className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-semibold py-2.5 rounded-lg transition-colors">
-                    <div
-                      onClick={() => navigate("/login")}
-                      className="text-white no-underline cursor-pointer"
-                    >
-                      Login
+                    <div className="mt-3 text-center">
+                      <p className="text-sm text-gray-600">New to our store?</p>
+                      <div className="text-base font-semibold text-red-700 cursor-pointer hover:underline">
+                        <div onClick={() => navigate("/register")}>
+                          Register
+                        </div>
+                      </div>
                     </div>
                   </div>
-
-                  <div className="mt-3 text-center">
-                    <p className="text-sm text-gray-600">New to our store?</p>
-                    <div className="text-base font-semibold text-red-700 cursor-pointer hover:underline">
-                      <div onClick={() => navigate("/register")}>Register</div>
-                    </div>
-                  </div>
-
-                </div>)}
+                )}
 
                 <hr className="border-gray-200" />
 
@@ -100,13 +101,19 @@ const NavBar = () => {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="/settings" className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50">
+                      <NavLink
+                        to="/settings"
+                        className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
+                      >
                         Personal Settings
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink to="/wishlist" className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50">
+                      <NavLink
+                        to="/wishlist"
+                        className="block px-2 py-2 text-center text-gray-900 no-underline rounded-md hover:bg-gray-50"
+                      >
                         Your Wishlist
                       </NavLink>
                     </li>
@@ -157,7 +164,7 @@ const NavBar = () => {
             </div>
           </div>
         </div>
-      </div>  
+      </div>
     </nav>
   );
 };
