@@ -1,17 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import { asyncaddtoCart } from "../../store/action/CartAction";
 
 const Card = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
 
   const [showQuickView, setShowQuickView] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleAddToCart = (product) => {
-    console.log("Adding to cart:", product);
-
+    dispatch(asyncaddtoCart(product));
   };
 
   const handleQuickView = (product) => {
@@ -108,13 +109,9 @@ const Card = () => {
                   {selectedProduct.name}
                 </h1>
 
-                <p className="text-gray-600">
-                 {selectedProduct.brand}
-                </p>
+                <p className="text-gray-600">{selectedProduct.brand}</p>
 
-                <p className="text-gray-600">
-                 {selectedProduct.description}
-                </p>
+                <p className="text-gray-600">{selectedProduct.description}</p>
 
                 <p className="text-3xl font-bold text-red-600">
                   ₹{selectedProduct.price}

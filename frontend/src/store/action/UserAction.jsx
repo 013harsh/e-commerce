@@ -1,114 +1,153 @@
-import axios from "../../api/axiosconfig";
+import { account, ID } from "../../api/appwriteConfig";
 import { loaduser, remover } from "../reducer/UserSlice";
 
-
-export const RegisterUser = (user) => async (dispatch, getstate) => {
+// ─── REGISTER ────────────────────────────────────────────────────────────────
+export const RegisterUser = (user) => async (dispatch) => {
   try {
-    const { data: existinguser } = await axios.get(
-      `/users?email=${user.email}`
-    );
-    if (existinguser.length > 0) {
-      return console.log("user email already exists");
-    }
-
     if (
       user.email === "" ||
       user.password === "" ||
-      (user.username === "" && user.username.trim().length === 0)
+      user.username.trim().length === 0
     ) {
-      return console.log("please fill all the fields");
+      return console.log("Please fill all the fields");
     }
     if (user.password.length < 8) {
-      return console.log("password must be at least 6 characters long");
+      return console.log("Password must be at least 8 characters long");
     }
 
-    const { data: res } = await axios.post("/users", user);
-    console.log(res);
-    dispatch(loaduser(res));
+    // 1. Create Appwrite account
+    await account.create(ID.unique(), user.email, user.password, user.username);
+
+    // 2. Auto-login after registration
+    await account.createEmailPasswordSession(user.email, user.password);
+
+    // 3. Store extra fields (phone, address etc.) in prefs
+    await account.updatePrefs({
+      phone: user.phone || "",
+      streetAddress: user.streetAddress || "",
+      city: user.city || "",
+      state: user.state || "",
+      zipCode: user.zipCode || "",
+      country: user.country || "",
+      isAdmin: false,
+    });
+
+    const appwriteUser = await account.get();
+    const userData = {
+      id: appwriteUser.$id,
+      username: appwriteUser.name,
+      email: appwriteUser.email,
+      isAdmin: appwriteUser.prefs?.isAdmin || false,
+      ...appwriteUser.prefs,
+    };
+
+    localStorage.setItem("user", JSON.stringify(userData));
+    dispatch(loaduser(userData));
+    console.log("User registered successfully:", userData);
   } catch (error) {
-    console.log(error);
+    console.log("Register error:", error.message);
   }
 };
 
-export const LoginUser = (user) => async (dispatch, getstate) => {
+// ─── LOGIN ───────────────────────────────────────────────────────────────────
+export const LoginUser = (user) => async (dispatch) => {
   try {
-    const { data: emailuser } = await axios.get(
-      `/users?email=${user.email}&password=${user.password}`
-    );
-    
-    if (emailuser.length === 0) {
-      return console.log("user not found");
-    }
     if (user.email === "" || user.password === "") {
+      return console.log("Please fill all the fields");
     }
 
-    const { data: validuser } = await axios.get(
-      `/users?email=${user.email}&password=${user.password}`
-    );
+    // Create session via Appwrite Auth
+    await account.createEmailPasswordSession(user.email, user.password);
 
-    if (validuser.length === 0) {
-      return console.log("wrong password");
-    }
-    console.log(validuser[0]);
+    const appwriteUser = await account.get();
+    const userData = {
+      id: appwriteUser.$id,
+      username: appwriteUser.name,
+      email: appwriteUser.email,
+      isAdmin: appwriteUser.prefs?.isAdmin || false,
+      ...appwriteUser.prefs,
+    };
 
-    localStorage.setItem("user", JSON.stringify(validuser[0]));
-    dispatch(loaduser(validuser[0]));
+    localStorage.setItem("user", JSON.stringify(userData));
+    dispatch(loaduser(userData));
+    console.log("Login successful:", userData);
   } catch (error) {
-    console.log(error);
+    console.log("Login error:", error.message);
   }
 };
 
-export const Logoutuser = (user) => async (dispatch, getstate) => {
+// ─── LOGOUT ──────────────────────────────────────────────────────────────────
+export const Logoutuser = () => async (dispatch) => {
   try {
+    await account.deleteSession("current");
     localStorage.removeItem("user");
-    console.log("logout successful");
     dispatch(remover());
+    console.log("Logout successful");
   } catch (error) {
-    console.log(error);
+    console.log("Logout error:", error.message);
   }
 };
 
-export const Deleteuser = (user) => async (dispatch, getstate) => {
+// ─── DELETE ACCOUNT ──────────────────────────────────────────────────────────
+export const Deleteuser = () => async (dispatch) => {
   try {
-    const { data } = await axios.delete(`/users/${user.id}`);
+    // Delete current session (Appwrite client SDK cannot delete full account)
+    await account.deleteSession("current");
     localStorage.removeItem("user");
-    console.log("user deleted successfully");
-
     dispatch(remover());
+    console.log("User session deleted successfully");
   } catch (error) {
-    console.log("Delete error:", error);
+    console.log("Delete error:", error.message);
   }
 };
 
-export const Currentuser = () => async (dispatch, getstate) => {
+// ─── CURRENT USER (restore from Appwrite session) ────────────────────────────
+export const Currentuser = () => async (dispatch) => {
   try {
-    const currentuser = JSON.parse(localStorage.getItem("user"));
-    if (!currentuser) {
-      return console.log("no user found");
-    }
-    if (currentuser) {
-      dispatch(loaduser(currentuser));
-      console.log("user found");
-    } else {
-      console.log("no user found");
-    }
+    const appwriteUser = await account.get(); // checks active session
+    const userData = {
+      id: appwriteUser.$id,
+      username: appwriteUser.name,
+      email: appwriteUser.email,
+      isAdmin: appwriteUser.prefs?.isAdmin || false,
+      ...appwriteUser.prefs,
+    };
+
+    localStorage.setItem("user", JSON.stringify(userData));
+    console.log("User session restored");
+    dispatch(loaduser(userData));
   } catch (error) {
-    console.log(error);
+    // No active session — user is logged out
+    localStorage.removeItem("user");
+    dispatch(remover());
+    console.log("No active session found");
   }
 };
 
-export const UpdateuserDetails = (id, user) => async (dispatch, getstate) => {
+// ─── UPDATE USER DETAILS ─────────────────────────────────────────────────────
+export const UpdateuserDetails = (id, user) => async (dispatch) => {
   try {
-    const Storeuser = localStorage.getItem("user");
-    const storeuser = Storeuser ? JSON.parse(Storeuser) : null;
-
-    if (!storeuser) {
-      console.log("please login to continue");
+    // Update display name if provided
+    if (user.username) {
+      await account.updateName(user.username);
     }
-    const { data } = await axios.patch(`/users/${storeuser.id}`, user);
+
+    // Update extra fields in prefs
+    const currentPrefs = (await account.get()).prefs;
+    await account.updatePrefs({
+      ...currentPrefs,
+      phone: user.phone || currentPrefs.phone || "",
+      streetAddress: user.streetAddress || currentPrefs.streetAddress || "",
+      city: user.city || currentPrefs.city || "",
+      state: user.state || currentPrefs.state || "",
+      zipCode: user.zipCode || currentPrefs.zipCode || "",
+      country: user.country || currentPrefs.country || "",
+    });
+
+    // Refresh user in Redux + localStorage
+    console.log("User details updated successfully");
     dispatch(Currentuser());
-    localStorage.setItem("user", JSON.stringify(data));
   } catch (error) {
-    console.log(error);
+    console.log("Update error:", error.message);
   }
 };

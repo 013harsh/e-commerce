@@ -1,13 +1,12 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Search from "./Search";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user?.users);
   const cartItems = useSelector((state) => state.Cart?.Cart || []);
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
-  console.log("USER:", user);
 
   return (
     <nav className="grid items-center w-full grid-cols-1 gap-4 px-4 py-4 text-sm font-bold text-white bg-black sm:grid-cols-3 sm:px-6 lg:px-10 sm:py-5">
@@ -25,14 +24,7 @@ const NavBar = () => {
         </NavLink>
       </div>
 
-      <div className="flex items-center justify-start w-full max-w-xs bg-gray-100 rounded gap-7 sm:max-w-sm lg:max-w-md">
-        <input
-          type="text"
-          placeholder="Search"
-          className="w-full h-10 px-3 text-black rounded-l rounded-r outline-none sm:h-10"
-        />
-        {/* <i className="fa-solid fa-magnifying-glass"></i> */}
-      </div>
+      <Search />
 
       <div className="flex justify-end gap-x-6">
         <NavLink

@@ -1,61 +1,97 @@
-import axios from "../../api/axiosconfig";
-import { loadproduct, RemoveProduct } from "../reducer/ProductSlice";
+import {
+  databases,
+  ID,
+  DATABASE_ID,
+  PRODUCTS_COLLECTION_ID,
+} from "../../api/appwriteConfig";
+import {
+  loadproduct,
+  RemoveProduct,
+  setLoading,
+  setError,
+} from "../reducer/ProductSlice";
 
+// ─── ADD PRODUCT ──────────────────────────────────────────────────────────────
 export const AddProduct = (product) => async (dispatch) => {
   try {
-    const productData = {
-      ...product,
-      id: Date.now().toString(),
-      price: parseFloat(product.price) || 0,
-      stock: parseInt(product.stock) || 0,
+    const doc = await databases.createDocument(
+      DATABASE_ID,
+      PRODUCTS_COLLECTION_ID,
+      ID.unique(), // Appwrite generates a unique ID
+      {
+        name: product.name || "",
+        brand: product.brand || "",
+        category: product.category || "",
+        subcategory: product.subcategory || "",
+        price: parseFloat(product.price) || 0,
+        stock: parseInt(product.stock) || 0,
+        description: product.description || "",
+        ...(product.image ? { image: product.image } : {}),
+      },
+    );
 
-      image: product.image || null,
-    };
-
-    const { data } = await axios.post("/products", productData, {
-      headers: { "Content-Type": "application/json" },
-      //  headers: { "Content-Type": "multipart/form-data" },
-    });
-
-    dispatch(ReadProduct());
-
-    console.log(data);
-    return { success: true, data };
+    // console.log("Product added:", doc);
+    dispatch(ReadProduct()); // refresh product list
+    return { success: true, data: doc };
   } catch (error) {
-    console.log(error);
-
+    console.log("Add product error:", error.message);
     return { success: false, error };
   }
 };
 
+// ─── READ ALL PRODUCTS ────────────────────────────────────────────────────────
 export const ReadProduct = () => async (dispatch) => {
   try {
-    const { data } = await axios.get("/products");
+    dispatch(setLoading(true));
 
-    dispatch(loadproduct(Array.isArray(data) ? data : data.products || []));
-    console.log(data);
+    const res = await databases.listDocuments(
+      DATABASE_ID,
+      PRODUCTS_COLLECTION_ID,
+    );
+
+    // res.documents is array of Appwrite docs — ProductSlice normalizes $id → id
+    // console.log("Products loaded:", res.documents);
+    dispatch(loadproduct(res.documents));
   } catch (error) {
-    console.log(error);
+    console.log("Read products error:", error.message);
+    dispatch(setError(error.message));
     dispatch(loadproduct([]));
   }
 };
 
+// ─── UPDATE PRODUCT ───────────────────────────────────────────────────────────
 export const UpdateProduct = (id, product) => async (dispatch) => {
   try {
-    const { data } = await axios.patch(`/products/${id}`, product);
-    dispatch(ReadProduct());
-    console.log(data);
+    const doc = await databases.updateDocument(
+      DATABASE_ID,
+      PRODUCTS_COLLECTION_ID,
+      id,
+      {
+        name: product.name,
+        brand: product.brand || "",
+        category: product.category || "",
+        subcategory: product.subcategory || "",
+        price: parseFloat(product.price) || 0,
+        stock: parseInt(product.stock) || 0,
+        description: product.description || "",
+        ...(product.image ? { image: product.image } : {}),
+      },
+    );
+
+    // console.log("Product updated:", doc);
+    dispatch(ReadProduct()); // refresh product list
   } catch (error) {
-    console.log(error);
+    console.log("Update product error:", error.message);
   }
 };
 
+// ─── DELETE PRODUCT ───────────────────────────────────────────────────────────
 export const DeleteProduct = (id) => async (dispatch) => {
   try {
-    const { data } = await axios.delete(`/products/${id}`);
+    await databases.deleteDocument(DATABASE_ID, PRODUCTS_COLLECTION_ID, id);
+    // console.log("Product deleted:", id);
     dispatch(RemoveProduct(id));
-    console.log(data);
   } catch (error) {
-    console.log(error);
+    console.log("Delete product error:", error.message);
   }
 };

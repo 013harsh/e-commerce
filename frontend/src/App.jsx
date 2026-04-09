@@ -12,9 +12,13 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(Currentuser());
-    dispatch(ReadProduct());
-    dispatch(asyncloadCart());
+    const initializeApp = async () => {
+      dispatch(Currentuser());
+      dispatch(ReadProduct());
+      dispatch(asyncloadCart());
+    };
+
+    initializeApp();
   }, [dispatch]);
 
   return (

@@ -1,9 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import FilingOrganization from "./Categories/FilingOrganization";
-import OtherUsefultems from "./Categories/OtherUsefultems";
-import PaperNotebooks from "./Categories/PaperNotebooks";
-import RulerScale from "./Categories/RulerScale";
-import WritingTools from "./Categories/WritingTools";
 
 const StationeryProduct = () => {
   const navigate = useNavigate();

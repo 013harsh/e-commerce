@@ -13,8 +13,8 @@ const BookCard = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleAddToCart = (product) => {
-    console.log("Adding to cart:");
     dispatch(asyncaddtoCart(product));
+    navigate("/cart");
   };
 
   const handleQuickView = (product) => {
@@ -27,12 +27,12 @@ const BookCard = () => {
     return products
       .filter(
         (product) =>
-          product.category === "books" && product.subcategory === subcategory
+          product.category === "books" && product.subcategory === subcategory,
       )
       .slice(-5)
       .reverse();
   };
-  const displayProducts = getBooksBySubcategory();
+  const displayProducts = getBooksBySubcategory("Ncert");
   if (displayProducts.length === 0) {
     return <div className="py-8 text-center">No new arrivals available</div>;
   }
@@ -58,7 +58,6 @@ const BookCard = () => {
                 src={product.image}
                 alt={product.name}
                 className="object-cover w-32 h-48 rounded-lg shadow cursor-pointer"
-                // onClick={() => navigate(`/product/${product.id}`)}
               />
               <div className="absolute inset-0 flex items-center justify-center transition-all rounded-lg bg-black/0 group-hover:bg-black/30">
                 <button

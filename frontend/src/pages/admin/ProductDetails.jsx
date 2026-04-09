@@ -1,15 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { asyncaddtoCart } from "../../store/action/CartAction";
 import Homecard1 from "../../component/Card/Homecard1";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { id } = useParams();
 
   const products = useSelector((state) => state.product.products);
 
-  const product = products.find((p) =>String(p.id) === id);
+  const product = products.find((p) => String(p.id) === id);
 
   if (!product) return <h2>Product not found</h2>;
 
@@ -45,7 +47,10 @@ const ProductDetails = () => {
               {product.description}
             </p>
             <div className="flex space-x-4">
-              <button className="inline p-6 py-2 text-white bg-green-600 rounded-lg ">
+              <button
+                onClick={() => dispatch(asyncaddtoCart(product))}
+                className="inline p-6 py-2 text-white bg-green-600 rounded-lg "
+              >
                 Add to Cart
               </button>
 

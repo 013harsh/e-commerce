@@ -55,10 +55,7 @@ const Homecard1 = () => {
       </div>
       <div className="flex items-center justify-start w-full p-4 px-4 space-x-2 overflow-x-auto rounded-lg bg-slate-100 scrollbar-hide sm:px-6 lg:px-8 sm:space-x-4 lg:space-x-6">
         {displayProducts.map((product) => (
-          <div
-            key={product.id}
-            className="flex-shrink-0 w-32 sm:w-36 lg:w-40"
-          >
+          <div key={product.id} className="flex-shrink-0 w-32 sm:w-36 lg:w-40">
             <div className="relative flex items-center justify-center w-full h-40 overflow-hidden bg-gray-200 rounded-lg shadow-sm group sm:h-44 lg:h-48 hover:shadow-xl">
               <img
                 src={product.image}
@@ -76,7 +73,7 @@ const Homecard1 = () => {
               </div>
             </div>
             <div className="mt-3">
-              <h3 
+              <h3
                 className="text-xs font-semibold transition-colors cursor-pointer sm:text-sm line-clamp-2 hover:text-blue-600"
                 onClick={() => navigate(`/product/${product.id}`)}
               >
@@ -121,12 +118,10 @@ const Homecard1 = () => {
                   {selectedProduct.name}
                 </h1>
 
-                <p className="text-gray-600">
-                 {selectedProduct.brand}
-                </p>
+                <p className="text-gray-600">{selectedProduct.brand}</p>
 
                 <p className="text-sm leading-relaxed text-gray-600 line-clamp-3">
-                 {selectedProduct.description}
+                  {selectedProduct.description}
                 </p>
 
                 <p className="text-3xl font-bold text-red-600">
@@ -143,7 +138,7 @@ const Homecard1 = () => {
                   >
                     View Full Details
                   </button>
-                  
+
                   <div className="flex gap-4">
                     <button
                       className="flex-1 py-3 font-semibold text-white bg-red-600 rounded-lg hover:bg-red-700"

@@ -98,18 +98,18 @@ const UpdateProduct = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white min-h-screen">
+    <div className="max-w-4xl min-h-screen p-6 mx-auto bg-white">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">
+        <h1 className="mb-2 text-3xl font-bold text-gray-800">
           Update Product
         </h1>
         <p className="text-gray-600">Search and update existing products in your inventory</p>
       </div>
 
       {/* Product Search Section */}
-      <div className="bg-blue-50 p-6 rounded-lg mb-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">
-          <i className="fa-solid fa-search mr-2"></i>Search Product
+      <div className="p-6 mb-6 rounded-lg bg-blue-50">
+        <h2 className="mb-4 text-xl font-semibold text-gray-800">
+          <i className="mr-2 fa-solid fa-search"></i>Search Product
         </h2>
 
         <div className="relative">
@@ -125,21 +125,21 @@ const UpdateProduct = () => {
                 reset();
               }
             }}
-            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+            className="w-full px-4 py-3 text-lg border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           {showProductList && filteredProducts.length > 0 && (
-            <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto">
+            <div className="absolute z-10 w-full mt-1 overflow-y-auto bg-white border border-gray-300 rounded-md shadow-lg max-h-60">
               {filteredProducts.slice(0, 10).map((product) => (
                 <div
                   key={product.id}
                   onClick={() => loadProductData(product)}
-                  className="flex items-center p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100"
+                  className="flex items-center p-3 border-b border-gray-100 cursor-pointer hover:bg-gray-50"
                 >
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-12 h-12 object-cover rounded mr-3"
+                    className="object-cover w-12 h-12 mr-3 rounded"
                   />
                   <div className="flex-1">
                     <h3 className="font-medium text-gray-900">{product.name}</h3>
@@ -154,10 +154,10 @@ const UpdateProduct = () => {
         </div>
 
         {selectedProduct && (
-          <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-md">
+          <div className="p-4 mt-4 border border-green-200 rounded-md bg-green-50">
             <div className="flex items-center">
-              <i className="fa-solid fa-check-circle text-green-600 mr-2"></i>
-              <span className="text-green-800 font-medium">
+              <i className="mr-2 text-green-600 fa-solid fa-check-circle"></i>
+              <span className="font-medium text-green-800">
                 Selected: {selectedProduct.name} (ID: {selectedProduct.id})
               </span>
             </div>
@@ -168,14 +168,14 @@ const UpdateProduct = () => {
       {/* Update Form - Only show when product is selected */}
       {selectedProduct && (
         <form onSubmit={handleSubmit(updateHandler)} className="space-y-6">
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">
-              <i className="fa-solid fa-edit mr-2"></i>Update Product Information
+          <div className="p-6 rounded-lg bg-gray-50">
+            <h2 className="mb-4 text-xl font-semibold text-gray-800">
+              <i className="mr-2 fa-solid fa-edit"></i>Update Product Information
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-sm font-medium text-gray-700">
                   Product Name *
                 </label>
                 <input
@@ -185,14 +185,14 @@ const UpdateProduct = () => {
                   placeholder="Enter product name"
                 />
                 {errors.name && (
-                  <span className="text-red-500 text-sm mt-1">
+                  <span className="mt-1 text-sm text-red-500">
                     {errors.name.message}
                   </span>
                 )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-sm font-medium text-gray-700">
                   Brand
                 </label>
                 <input
@@ -204,7 +204,7 @@ const UpdateProduct = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-sm font-medium text-gray-700">
                   Category *
                 </label>
                 <select
@@ -219,7 +219,7 @@ const UpdateProduct = () => {
                   ))}
                 </select>
                 {errors.category && (
-                  <span className="text-red-500 text-sm mt-1">
+                  <span className="mt-1 text-sm text-red-500">
                     {errors.category.message}
                   </span>
                 )}
@@ -227,7 +227,7 @@ const UpdateProduct = () => {
 
               {watchCategory === "stationery" && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 text-sm font-medium text-gray-700">
                     Subcategory
                   </label>
                   <select
@@ -246,7 +246,7 @@ const UpdateProduct = () => {
 
               {watchCategory === "books" && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 text-sm font-medium text-gray-700">
                     Subcategory
                   </label>
                   <select
@@ -264,7 +264,7 @@ const UpdateProduct = () => {
               )}
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-sm font-medium text-gray-700">
                   Price *
                 </label>
                 <input
@@ -276,14 +276,14 @@ const UpdateProduct = () => {
                   placeholder="0.00"
                 />
                 {errors.price && (
-                  <span className="text-red-500 text-sm mt-1">
+                  <span className="mt-1 text-sm text-red-500">
                     {errors.price.message}
                   </span>
                 )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block mb-2 text-sm font-medium text-gray-700">
                   Stock Quantity *
                 </label>
                 <input
@@ -294,7 +294,7 @@ const UpdateProduct = () => {
                   placeholder="0"
                 />
                 {errors.stock && (
-                  <span className="text-red-500 text-sm mt-1">
+                  <span className="mt-1 text-sm text-red-500">
                     {errors.stock.message}
                   </span>
                 )}
@@ -302,7 +302,7 @@ const UpdateProduct = () => {
             </div>
 
             <div className="mt-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block mb-2 text-sm font-medium text-gray-700">
                 Description *
               </label>
               <textarea
@@ -312,19 +312,19 @@ const UpdateProduct = () => {
                 placeholder="Enter product description"
               />
               {errors.description && (
-                <span className="text-red-500 text-sm mt-1">
+                <span className="mt-1 text-sm text-red-500">
                   {errors.description.message}
                 </span>
               )}
             </div>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">
-              <i className="fa-solid fa-image mr-2"></i>Product Image
+          <div className="p-6 rounded-lg bg-gray-50">
+            <h2 className="mb-4 text-xl font-semibold text-gray-800">
+              <i className="mr-2 fa-solid fa-image"></i>Product Image
             </h2>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block mb-2 text-sm font-medium text-gray-700">
                 Image URL
               </label>
               <input
@@ -335,11 +335,11 @@ const UpdateProduct = () => {
               />
               {selectedProduct?.image && (
                 <div className="mt-3">
-                  <p className="text-sm text-gray-600 mb-2">Current Image:</p>
+                  <p className="mb-2 text-sm text-gray-600">Current Image:</p>
                   <img
                     src={selectedProduct.image}
                     alt="Current product"
-                    className="w-32 h-32 object-cover rounded-md border"
+                    className="object-cover w-32 h-32 border rounded-md"
                   />
                 </div>
               )}
@@ -349,7 +349,7 @@ const UpdateProduct = () => {
           <div className="flex justify-end space-x-4">
             <button
               type="button"
-              className="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors"
+              className="px-6 py-2 text-gray-700 transition-colors border border-gray-300 rounded-md hover:bg-gray-50"
               onClick={() => {
                 reset();
                 setSelectedProduct(null);
@@ -361,7 +361,7 @@ const UpdateProduct = () => {
             </button>
             <button
               type="button"
-              className="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors"
+              className="px-6 py-2 text-gray-700 transition-colors border border-gray-300 rounded-md hover:bg-gray-50"
               onClick={() => navigate("/")}
               disabled={loading}
             >
@@ -370,16 +370,16 @@ const UpdateProduct = () => {
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-6 py-2 text-white transition-colors bg-orange-500 rounded-md hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <>
-                  <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+                  <i className="mr-2 fa-solid fa-spinner fa-spin"></i>
                   Updating...
                 </>
               ) : (
                 <>
-                  <i className="fa-solid fa-save mr-2"></i>
+                  <i className="mr-2 fa-solid fa-save"></i>
                   Update Product
                 </>
               )}
@@ -390,9 +390,9 @@ const UpdateProduct = () => {
 
       {/* No Product Selected Message */}
       {!selectedProduct && (
-        <div className="text-center py-12 bg-gray-50 rounded-lg">
-          <i className="fa-solid fa-search text-4xl text-gray-400 mb-4"></i>
-          <h3 className="text-lg font-medium text-gray-900 mb-2">
+        <div className="py-12 text-center rounded-lg bg-gray-50">
+          <i className="mb-4 text-4xl text-gray-400 fa-solid fa-search"></i>
+          <h3 className="mb-2 text-lg font-medium text-gray-900">
             Search for a Product to Update
           </h3>
           <p className="text-gray-600">
